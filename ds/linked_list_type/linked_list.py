@@ -103,8 +103,3 @@ class LinkedList:
             if index == self._len:
                 self.tail = current
         self._len -= 1
-
-if __name__ == '__main__':
-    a = LinkedList([1, 2, 3, 4,5])
-
-    print(LinkedList([1, 2, 3, 4,5]))
