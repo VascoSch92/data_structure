@@ -1,15 +1,21 @@
 from typing import Optional, Sequence, Any
 from ds.linked_list_type._validators import _validate_index
 
+__all__ = ["ListNode", "LinkedList"]
+
 
 class ListNode:
     """Base node for linked list"""
-    def __init__(self, value=0, next=None):
+
+    def __init__(self, value: Any = None, next: Optional["ListNode"] = None) -> None:
         self.value = value
         self.next = next
 
-class LinkedList:
+    def __repr__(self) -> str:
+        return f"ListNode(value={self.value.__str__()}, next={self.next.__repr__()})"
 
+
+class LinkedList:
     def __init__(self, _from: Optional[Sequence] = None) -> None:
         if not _from:
             self.head = ListNode()
@@ -18,16 +24,18 @@ class LinkedList:
         elif isinstance(_from, Sequence):
             self._instantiate_from_sequence(source=_from)
         else:
-            raise ValueError(f"Creation of a linked list from type {type(_from)} not supported.")
-
+            raise ValueError(
+                f"Creation of a linked list from type {type(_from)} not supported."
+            )
 
     def _instantiate_from_sequence(self, source: Sequence) -> "LinkedList":
         """Private method to instantiate a linked list from a sequence."""
+        self.head = ListNode(value=source[0])
         curr = self.head
-        for value in source:
+        for value in source[1:]:
             new_node = ListNode(value=value)
             curr.next = new_node
-            curr.next = new_node
+            curr = curr.next
         self.tail = curr
         self._len = len(source)
 
@@ -38,16 +46,16 @@ class LinkedList:
         current = self.head
         representation = ""
         while current:
-            representation += current.value
+            representation += current.value.__str__()
             representation += "->" if current.next else ""
-            representation = current.next
+            current = current.next
         return representation
 
     def __repr__(self) -> str:
         return f"LinkedList(head={self.head.__repr__()}, tail={self.tail.__repr__()}, length={len(self)})"
 
     def __getitem__(self, index: int) -> ListNode:
-        self.get(index=index)
+        return self.get(index=index)
 
     def __delitem__(self, index: int) -> None:
         self.remove(index=index)
@@ -60,7 +68,7 @@ class LinkedList:
             new_node.next = self.head
             self.head = new_node
         else:
-            current = self.get(index=index-1)
+            current = self.get(index=index - 1)
             new_node.next = current.next
             current.next = new_node
             if index == self._len:
@@ -90,11 +98,13 @@ class LinkedList:
         if index == 0:
             self.head = self.head.next
         else:
-            current = self.get(index=index-1)
+            current = self.get(index=index - 1)
             current.next = current.next.next
             if index == self._len:
                 self.tail = current
         self._len -= 1
 
+if __name__ == '__main__':
+    a = LinkedList([1, 2, 3, 4,5])
 
-
+    print(LinkedList([1, 2, 3, 4,5]))
