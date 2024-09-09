@@ -55,16 +55,12 @@ class LinkedList:
     def insert(self, index: int, value: Any) -> None:
         """Insert a new node at the index-th with the given value."""
         _validate_index(index=index, lower_bound=0, upper_bound=self._len)
-
-        current = self.head
         new_node = ListNode(value=value)
-
         if index == 0:
-            new_node.next = current
+            new_node.next = self.head
             self.head = new_node
         else:
-            for _ in range(index - 1):
-                current = current.next
+            current = self.get(index=index-1)
             new_node.next = current.next
             current.next = new_node
             if index == self._len:
@@ -91,13 +87,10 @@ class LinkedList:
     def remove(self, index: int) -> None:
         """Remove the index-th node in the linked list, if the index is valid."""
         _validate_index(index=index, lower_bound=0, upper_bound=self._len)
-        current = self.head
-
         if index == 0:
             self.head = self.head.next
         else:
-            for _ in range(0, index - 1):
-                current = current.next
+            current = self.get(index=index-1)
             current.next = current.next.next
             if index == self._len:
                 self.tail = current
