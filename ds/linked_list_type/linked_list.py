@@ -42,26 +42,14 @@ class LinkedList:
     def __len__(self) -> int:
         return self._len
 
-    def __str__(self) -> str:
-        current = self.head
-        representation = ""
-        while current:
-            representation += current.value.__str__()
-            representation += "->" if current.next else ""
-            current = current.next
-        return representation
-
     def __repr__(self) -> str:
         return f"LinkedList(head={self.head.__repr__()}, tail={self.tail.__repr__()}, length={len(self)})"
 
-    def __getitem__(self, index: int) -> ListNode:
-        return self.get(index=index)
-
-    def __delitem__(self, index: int) -> None:
-        self.remove(index=index)
-
     def insert(self, index: int, value: Any) -> None:
-        """Insert a new node at the index-th with the given value."""
+        """
+        Insert a new node at the index-th with the given value.
+        Time complexity: O(n) for n equal to the length of the list.
+        """
         _validate_index(index=index, lower_bound=0, upper_bound=self._len)
         new_node = ListNode(value=value)
         if index == 0:
@@ -71,21 +59,32 @@ class LinkedList:
             current = self.get(index=index - 1)
             new_node.next = current.next
             current.next = new_node
-            if index == self._len:
-                self.tail = self.tail.next
 
         self._len += 1
+        if index == 0 and self._len == 1:
+            self.tail = self.head
+        if index == self._len - 1:
+            self.tail = new_node
 
     def prepend(self, value: Any) -> None:
-        """Add a new node with the given value at the begin of the linked list."""
+        """
+        Add a new node with the given value at the begin of the linked list.
+        Time complexity: O(1)
+        """
         self.insert(index=0, value=value)
 
     def append(self, value: Any) -> None:
-        """Add a new node with the given value at the end of the linked list."""
+        """
+        Add a new node with the given value at the end of the linked list.
+        Time complexity: O(1)
+        """
         self.insert(index=self._len, value=value)
 
     def get(self, index: int) -> ListNode:
-        """Return the index-th node in the linked list, if the index is valid."""
+        """
+        Return the index-th node in the linked list, if the index is valid.
+        Time complexity: O(n), for n equal to the length of the list.
+        """
         _validate_index(index=index, lower_bound=0, upper_bound=self._len)
         current = self.head
         for _ in range(index):
@@ -93,7 +92,10 @@ class LinkedList:
         return current
 
     def remove(self, index: int) -> None:
-        """Remove the index-th node in the linked list, if the index is valid."""
+        """
+        Remove the index-th node in the linked list, if the index is valid.
+        Time complexity: O(n), for n equal to the length of the list.
+        """
         _validate_index(index=index, lower_bound=0, upper_bound=self._len)
         if index == 0:
             self.head = self.head.next
