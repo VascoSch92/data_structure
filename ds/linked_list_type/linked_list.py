@@ -24,7 +24,7 @@ class LinkedList:
         elif isinstance(_from, Sequence):
             self._instantiate_from_sequence(source=_from)
         else:
-            raise ValueError(
+            raise TypeError(
                 f"Creation of a linked list from type {type(_from)} not supported."
             )
 
