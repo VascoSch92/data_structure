@@ -3,12 +3,15 @@
 ---
 A collection of data structure for Python
 
-**Overview**
+## Overview
 - [Linked List Type](#linked-list-type)
   - [Linked List](#linked-list)
-- Stack Type
+- [Stack Type](#stack-type)
+  - [Stack](#stack)
 
 ## Linked List Type
+
+---
 
 ### Linked List
 
@@ -21,3 +24,15 @@ A collection of data structure for Python
 | `remove`   | Remove the index-th node in the linked list, if the index is valid.   | O(n)                | 
 
 ## Stack Type
+
+---
+
+### Stack
+
+| **Method** | **Description**                                         | **Time Complexity** |    
+|------------|---------------------------------------------------------|---------------------|
+| `pop`      | Delete and return the last element added to the stack.  | O(1)                | 
+| `push`     | Push the element `value` at the top of the stack.       | O(1)                | 
+| `peek`     | Return the last element added to the stack.             | O(1)                | 
+
+
