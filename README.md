@@ -8,6 +8,7 @@ A collection of data structure for Python
   - [Linked List](#linked-list)
 - [Stack Type](#stack-type)
   - [Stack](#stack)
+  - [MinMaxStack](#minmaxstack)
 
 ## Linked List Type
 
@@ -35,4 +36,13 @@ A collection of data structure for Python
 | `push`     | Push the element `value` at the top of the stack.       | O(1)                | 
 | `peek`     | Return the last element added to the stack.             | O(1)                | 
 
+### MinMaxStack
+
+| **Method** | **Description**                                        | **Time Complexity** |    
+|------------|--------------------------------------------------------|---------------------|
+| `pop`      | Delete and return the last element added to the stack. | O(1)                | 
+| `push`     | Push the element `value` at the top of the stack.      | O(1)                | 
+| `peek`     | Return the last element added to the stack.            | O(1)                | 
+| `min`      | Return the min element presents in the stack.          | O(1)                | 
+| `max`      | Return the max element presents in the stack.          | O(1)                | 
 
