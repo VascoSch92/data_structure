@@ -1,5 +1,5 @@
 from typing import Optional, Sequence, Any
-from ds.linked_list_type._validators import _validate_index
+from ds._validators import _validate_index
 
 __all__ = ["ListNode", "LinkedList"]
 
