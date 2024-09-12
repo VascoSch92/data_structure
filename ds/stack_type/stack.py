@@ -28,9 +28,10 @@ class Stack:
     @staticmethod
     def _instantiate_from_sequence(source: Sequence) -> "ListNode":
         """Private method to instantiate a stack from a sequence."""
-        stack = ListNode(value=source[-1])
+        source = source[::-1]
+        stack = ListNode(value=source[0])
         curr = stack
-        for value in source[1::-1]:
+        for value in source[1:]:
             next_element = ListNode(value=value)
             curr.next = next_element
             curr = curr.next
