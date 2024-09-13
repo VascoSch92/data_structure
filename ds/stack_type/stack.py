@@ -1,5 +1,5 @@
 from ds import ListNode
-from typing import Sequence, Optional, Any
+from typing import Sequence, Optional, Any, Tuple
 
 
 __all__ = ["Stack"]
@@ -14,8 +14,7 @@ class Stack:
         return super().__new__(cls)
 
     def __init__(self, _from: Optional[Sequence] = None) -> None:
-        self._stack = self._instantiate_from_sequence(source=_from) if _from else None
-        self._len = len(_from) if _from else 0
+        self._stack, self._len = self._instantiate_object(source=_from)
 
     def __repr__(self) -> str:
         curr = self._stack
@@ -26,8 +25,12 @@ class Stack:
         return f"Stack({', '.join(elements[::-1])})"
 
     @staticmethod
-    def _instantiate_from_sequence(source: Sequence) -> "ListNode":
-        """Private method to instantiate a stack from a sequence."""
+    def _instantiate_object(
+        source: Optional[Sequence] = None,
+    ) -> Tuple[Optional[ListNode], int]:
+        """Private method to instantiate a stack."""
+        if not source:
+            return None, 0
         source = source[::-1]
         stack = ListNode(value=source[0])
         curr = stack
@@ -35,7 +38,7 @@ class Stack:
             next_element = ListNode(value=value)
             curr.next = next_element
             curr = curr.next
-        return stack
+        return stack, len(source)
 
     def __len__(self) -> int:
         return self._len
