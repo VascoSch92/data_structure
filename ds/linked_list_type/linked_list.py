@@ -1,4 +1,4 @@
-from typing import Optional, Sequence, Any
+from typing import Optional, Sequence, Any, Tuple
 from ds._validators import _validate_index
 
 __all__ = ["ListNode", "LinkedList"]
@@ -16,33 +16,37 @@ class ListNode:
 
 
 class LinkedList:
-    def __init__(self, _from: Optional[Sequence] = None) -> None:
-        if not _from:
-            self.head = ListNode()
-            self.tail = self.head
-            self._len = 0
-        elif isinstance(_from, Sequence):
-            self._instantiate_from_sequence(source=_from)
-        else:
+    def __new__(cls, _from: Optional[Sequence] = None) -> "LinkedList":
+        if not isinstance(_from, Sequence) and _from:
             raise TypeError(
                 f"Creation of a linked list from type {type(_from)} not supported."
             )
+        return super().__new__(cls)
 
-    def _instantiate_from_sequence(self, source: Sequence) -> "LinkedList":
-        """Private method to instantiate a linked list from a sequence."""
-        self.head = ListNode(value=source[0])
-        curr = self.head
+    def __init__(self, _from: Optional[Sequence] = None) -> None:
+        self.head, self.tail, self._len = self._instantiate_object(source=_from)
+
+    @staticmethod
+    def _instantiate_object(
+        source: Optional[Sequence] = None,
+    ) -> Tuple[Optional[ListNode], Optional[ListNode], int]:
+        """Private method to instantiate a linked list."""
+        if not source:
+            return None, None, 0
+        head = ListNode(value=source[0])
+        curr = head
         for value in source[1:]:
             new_node = ListNode(value=value)
             curr.next = new_node
             curr = curr.next
-        self.tail = curr
-        self._len = len(source)
+        return head, curr, len(source)
 
     def __len__(self) -> int:
         return self._len
 
     def __repr__(self) -> str:
+        if not self.head:
+            return "None"
         return f"LinkedList(head={self.head.__repr__()}, tail={self.tail.__repr__()}, length={len(self)})"
 
     def insert(self, index: int, value: Any) -> None:
@@ -53,8 +57,12 @@ class LinkedList:
         _validate_index(index=index, lower_bound=0, upper_bound=self._len)
         new_node = ListNode(value=value)
         if index == 0:
-            new_node.next = self.head
-            self.head = new_node
+            if not self.head:
+                self.head = ListNode(value=value)
+                self.tail = self.head
+            else:
+                new_node.next = self.head
+                self.head = new_node
         else:
             current = self.get(index=index - 1)
             new_node.next = current.next
