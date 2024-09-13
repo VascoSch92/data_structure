@@ -23,7 +23,7 @@ class Stack:
         while curr:
             elements.append(curr.value.__repr__())
             curr = curr.next
-        return f"Stack({', '.join(elements)})"
+        return f"Stack({', '.join(elements[::-1])})"
 
     @staticmethod
     def _instantiate_from_sequence(source: Sequence) -> "ListNode":
@@ -39,6 +39,9 @@ class Stack:
 
     def __len__(self) -> int:
         return self._len
+
+    def __bool__(self) -> bool:
+        return self._len > 0
 
     def pop(self) -> Any:
         """
