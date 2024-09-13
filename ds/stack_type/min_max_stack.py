@@ -13,21 +13,20 @@ class MinMaxStack:
         return super().__new__(cls)
 
     def __init__(self, _from: Optional[Sequence] = None) -> None:
-        self._stack, self._range = (
-            self._instantiate_from_sequence(_from) if _from else (Stack(), Stack())
-        )
+        self._stack, self._range, self._len = self._instantiate_object(source=_from)
         self._len = len(self._stack) if _from else 0
 
     @staticmethod
-    def _instantiate_from_sequence(source: Sequence) -> Tuple[Stack, Stack]:
+    def _instantiate_object(source: Sequence) -> Tuple[Stack, Stack, int]:
         """Private method to instantiate a MinMaxStack from a sequence."""
+        if not source:
+            return Stack(), Stack(), 0
         source = source[::-1]
         stack, range = Stack(), Stack()
         for idx, value in enumerate(source):
             stack.push(value)
             range.push((min(source[: idx + 1]), max(source[: idx + 1])))
-
-        return stack, range
+        return stack, range, len(source)
 
     def __len__(self) -> int:
         return self._len
