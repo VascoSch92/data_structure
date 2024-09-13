@@ -20,7 +20,7 @@ class MinMaxStack:
 
     @staticmethod
     def _instantiate_from_sequence(source: Sequence) -> Tuple[Stack, Stack]:
-        """Private method to instantiate a stack from a sequence."""
+        """Private method to instantiate a MinMaxStack from a sequence."""
         source = source[::-1]
         stack, range = Stack(), Stack()
         for idx, value in enumerate(source):
@@ -39,12 +39,20 @@ class MinMaxStack:
         return self._stack.__repr__()
 
     def pop(self) -> Any:
+        """
+        Delete and return the last element added to the stack.
+        Time complexity: O(1).
+        """
         if self._len == 0:
             raise ValueError("Empty stack!")
         self._range.pop()
         return self._stack.pop()
 
     def push(self, value: Any) -> None:
+        """
+        Push the element `value` at the top of the stack.
+        Time complexity: O(1).
+        """
         self._stack.push(value=value)
 
         new_min, new_max = value, value
@@ -58,18 +66,22 @@ class MinMaxStack:
         self._len += 1
 
     def peek(self) -> Any:
+        """
+        Return the last element added to the stack.
+        Time complexity: O(1).
+        """
         return self._stack.peek()
 
     def min(self) -> Any:
+        """
+        Return the min element presents in the stack.
+        Time complexity: O(1).
+        """
         return self._range.peek()[0]
 
     def max(self) -> Any:
+        """
+        Return the max element presents in the stack.
+        Time complexity: O(1)
+        """
         return self._range.peek()[1]
-
-
-if __name__ == "__main__":
-    stack = MinMaxStack([1, 2, 3, 4, 5])
-    while stack:
-        print(stack)
-        print(stack.peek(), stack.min(), stack.max())
-        stack.pop()
