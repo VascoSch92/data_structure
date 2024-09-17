@@ -94,4 +94,3 @@ class Trie:
             return len(node.children) == 0 and not node.end
 
         return False
-
