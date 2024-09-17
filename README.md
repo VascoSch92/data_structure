@@ -1,6 +1,7 @@
 # Data Structure
 
 ---
+
 A collection of data structure for Python
 
 ## Overview
@@ -9,6 +10,8 @@ A collection of data structure for Python
 - [Stack Type](#stack-type)
   - [Stack](#stack)
   - [MinMaxStack](#minmaxstack)
+- [Trie Type](#trie-type)
+  - [Trie](#trie)
 
 ## Linked List Type
 
@@ -45,4 +48,19 @@ A collection of data structure for Python
 | `peek`     | Return the last element added to the stack.            | O(1)                | 
 | `min`      | Return the min element presents in the stack.          | O(1)                | 
 | `max`      | Return the max element presents in the stack.          | O(1)                | 
+
+
+## Trie Type
+
+---
+
+### Trie
+
+| **Method**   | **Description**                                           | **Time Complexity** |    
+|--------------|-----------------------------------------------------------|---------------------|
+| `add`        | Add a word in the trie.                                   | O(n)                | 
+| `search`     | Search if a word is in the trie.                          | O(n)                | 
+| `startswith` | Search if a word in the trie start with the given prefix. | O(n)                | 
+| `remove`     | Remove the given word from the trie.                      | O(n)                | 
+
 
