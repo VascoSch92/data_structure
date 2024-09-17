@@ -1,5 +1,7 @@
 from typing import Optional, Sequence
 
+__all__ = ["Trie"]
+
 
 class TrieNode:
     def __init__(self) -> None:
