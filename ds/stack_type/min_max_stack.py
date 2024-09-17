@@ -84,3 +84,10 @@ class MinMaxStack:
         Time complexity: O(1)
         """
         return self._range.peek()[1]
+
+    def is_empty(self) -> bool:
+        """
+        Return True if the stack is empty. False, otherwise.
+        Time complexity: O(1)
+        """
+        return self._len == 0

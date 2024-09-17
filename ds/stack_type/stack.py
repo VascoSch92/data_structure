@@ -75,3 +75,10 @@ class Stack:
         if self._len == 0:
             raise ValueError("Empty stack!")
         return self._stack.value
+
+    def is_empty(self) -> bool:
+        """
+        Return True if the stack is empty. False, otherwise.
+        Time complexity: O(1)
+        """
+        return self._len == 0

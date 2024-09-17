@@ -113,3 +113,10 @@ class LinkedList:
             if index == self._len:
                 self.tail = current
         self._len -= 1
+
+    def is_empty(self) -> bool:
+        """
+        Return True if the linked list is empty. False, otherwise.
+        Time complexity: O(1)
+        """
+        return self._len == 0
