@@ -10,8 +10,11 @@ A collection of data structure for Python
 - [Stack Type](#stack-type)
   - [Stack](#stack)
   - [MinMaxStack](#minmaxstack)
+- [Queue Type](#queue-type)
+  - [Queue](#queue)
 - [Trie Type](#trie-type)
   - [Trie](#trie)
+
 
 ## Linked List Type
 
@@ -26,7 +29,7 @@ A collection of data structure for Python
 | `insert`   | Insert a new node at the index-th with the given value.               | O(n)                | 
 | `get`      | Return the index-th node in the linked list, if the index is valid.   | O(n)                | 
 | `remove`   | Remove the index-th node in the linked list, if the index is valid.   | O(n)                |
-| `is_empty` | Return `True` if the linked list is empty. `False`, otherwise.        | O(1)                | 
+| `is_empty` | Return `True` if the linked list is empty. Otherwise, `False`.        | O(1)                | 
 
 ## Stack Type
 
@@ -39,7 +42,7 @@ A collection of data structure for Python
 | `pop`      | Delete and return the last element added to the stack.   | O(1)                | 
 | `push`     | Push the element `value` at the top of the stack.        | O(1)                | 
 | `peek`     | Return the last element added to the stack.              | O(1)                |
-| `is_empty` | Return `True` if the stack is empty. `False`, otherwise. | O(1)                | 
+| `is_empty` | Return `True` if the stack is empty. Otherwise, `False`. | O(1)                | 
 
 ### MinMaxStack
 
@@ -50,7 +53,22 @@ A collection of data structure for Python
 | `peek`     | Return the last element added to the stack.              | O(1)                | 
 | `min`      | Return the min element presents in the stack.            | O(1)                | 
 | `max`      | Return the max element presents in the stack.            | O(1)                | 
-| `is_empty` | Return `True` if the stack is empty. `False`, otherwise. | O(1)                | 
+| `is_empty` | Return `True` if the stack is empty. Otherwise, `False`. | O(1)                | 
+
+
+## Queue Type
+
+---
+
+### Queue
+
+| **Method** | **Description**                                          | **Time Complexity** |    
+|------------|----------------------------------------------------------|---------------------|
+| `enqueue`  | Push the element `value` at the end of the queue.        | O(1)                | 
+| `dequeue`  | Delete and return the first element of the queue.        | O(1)                | 
+| `peek`     | Return the first element of the queue.                   | O(1)                | 
+| `is_empty` | Return `True` if the queue is empty. Otherwise, `False`. | O(1)                | 
+
 
 ## Trie Type
 
