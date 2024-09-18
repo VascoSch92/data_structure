@@ -78,7 +78,7 @@ class Stack:
 
     def is_empty(self) -> bool:
         """
-        Return True if the stack is empty. False, otherwise.
+        Return True if the stack is empty. Otherwise, False.
         Time complexity: O(1)
         """
         return self._len == 0
