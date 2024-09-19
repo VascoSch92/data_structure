@@ -29,7 +29,18 @@ A collection of data structure for Python
 | `insert`   | Insert a new node at the index-th with the given value.               | O(n)                | 
 | `get`      | Return the index-th node in the linked list, if the index is valid.   | O(n)                | 
 | `remove`   | Remove the index-th node in the linked list, if the index is valid.   | O(n)                |
-| `is_empty` | Return `True` if the linked list is empty. Otherwise, `False`.        | O(1)                | 
+| `is_empty` | Return `True` if the linked list is empty. Otherwise, `False`.        | O(1)                |
+
+### Double Linked List
+
+| **Method** | **Description**                                                             | **Time Complexity** |    
+|------------|-----------------------------------------------------------------------------|---------------------|
+| `prepend`  | Add a new node with the given value at the begin of the double linked list. | O(1)                | 
+| `append`   | Add a new node with the given value at the end of the double linked list.   | O(1)                | 
+| `insert`   | Insert a new node at the index-th with the given value.                     | O(n)                | 
+| `get`      | Return the index-th node in the double linked list, if the index is valid.  | O(n)                | 
+| `remove`   | Remove the index-th node in the double linked list, if the index is valid.  | O(n)                |
+| `is_empty` | Return `True` if the double linked list is empty. Otherwise, `False`.       | O(1)                | 
 
 ## Stack Type
 
