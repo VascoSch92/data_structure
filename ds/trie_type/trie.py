@@ -1,6 +1,6 @@
 from typing import Optional, Sequence
 
-__all__ = ["Trie"]
+__all__ = ["Trie", "TrieNode"]
 
 
 class TrieNode:
