@@ -2,7 +2,7 @@
 
 ---
 
-A collection of data structure for Python
+A collection of data structure for Python.
 
 ## Overview
 - [Linked List Type](#linked-list-type)
@@ -14,6 +14,7 @@ A collection of data structure for Python
   - [Queue](#queue)
 - [Trie Type](#trie-type)
   - [Trie](#trie)
+  - [MatchTrie](#match-trie)
 
 
 ## Linked List Type
@@ -21,6 +22,22 @@ A collection of data structure for Python
 ---
 
 ### Linked List
+
+A linked list is a linear data structure where elements, called nodes, are stored in a sequence. 
+Each node contains two parts: the data and a reference (or pointer) to the next node in the sequence. 
+The first node is called the head, and the last node points to null, indicating the end of the list. 
+
+#### Instantiation
+
+- Empty: `linked_list = LinkedList()`
+
+- From a Sequence type object: `linked_list = LinkedList(SEQUENCE_TYPE_OBJ)`
+
+#### Attributes
+- `head`: the head of the linked list (`ListNode` type)
+- `tail`: the tail of the linked list (`ListNode` type)
+
+#### Methods
 
 | **Method** | **Description**                                                       | **Time Complexity** |    
 |------------|-----------------------------------------------------------------------|---------------------|
@@ -32,6 +49,23 @@ A collection of data structure for Python
 | `is_empty` | Return `True` if the linked list is empty. Otherwise, `False`.        | O(1)                |
 
 ### Double Linked List
+
+A doubly linked list is a more complex version of a linked list where each node has two references: 
+one pointing to the next node and another pointing to the previous node. 
+This bidirectional structure allows traversal in both directions (forward and backward). 
+Like a regular linked list, the first node is the head, and the last node is the tail.
+
+#### Instantiation
+
+- Empty: `double_linked_list = DoubleLinkedList()`
+
+- From a Sequence type object: `double_linked_list = DoubleLinkedList(SEQUENCE_TYPE_OBJ)`
+
+#### Attributes
+- `head`: the head of the linked list (`DoubleListNode` type)
+- `tail`: the tail of the linked list (`DoubleListNode` type)
+
+#### Methods
 
 | **Method** | **Description**                                                             | **Time Complexity** |    
 |------------|-----------------------------------------------------------------------------|---------------------|
@@ -48,6 +82,17 @@ A collection of data structure for Python
 
 ### Stack
 
+A stack is a linear data structure that follows the Last In, First Out (LIFO) principle. 
+This means that the last element added to the stack is the first one to be removed. 
+
+#### Instantiation
+
+- Empty: `stack = Stack()`
+
+- From a Sequence type object: `stack = Stack(SEQUENCE_TYPE_OBJ)`
+
+#### Methods
+
 | **Method** | **Description**                                          | **Time Complexity** |    
 |------------|----------------------------------------------------------|---------------------|
 | `pop`      | Delete and return the last element added to the stack.   | O(1)                | 
@@ -56,6 +101,17 @@ A collection of data structure for Python
 | `is_empty` | Return `True` if the stack is empty. Otherwise, `False`. | O(1)                | 
 
 ### MinMaxStack
+
+A regular stack where you can access the minimum and maximum of the elements presents in the stack 
+in constant time.
+
+#### Instantiation
+
+- Empty: `stack = MinMaxStack()`
+
+- From a Sequence type object: `stack = MinMaxStack(SEQUENCE_TYPE_OBJ)`
+
+#### Methods
 
 | **Method** | **Description**                                          | **Time Complexity** |    
 |------------|----------------------------------------------------------|---------------------|
@@ -73,6 +129,17 @@ A collection of data structure for Python
 
 ### Queue
 
+A queue is a linear data structure that follows the First In, First Out (FIFO) principle. 
+This means the first element added to the queue is the first one to be removed.
+
+#### Instantiation
+
+- Empty: `queue = Queue()`
+
+- From a Sequence type object: `queue = Queue(SEQUENCE_TYPE_OBJ)`
+
+#### Methods
+
 | **Method** | **Description**                                          | **Time Complexity** |    
 |------------|----------------------------------------------------------|---------------------|
 | `enqueue`  | Push the element `value` at the end of the queue.        | O(1)                | 
@@ -87,11 +154,45 @@ A collection of data structure for Python
 
 ### Trie
 
+A Trie (pronounced "try") is a tree-like data structure used to store a dynamic set of strings, 
+where each node represents a single character of a string. 
+It is especially efficient for searching words, making it useful for applications like autocomplete, 
+spell checking, and prefix-based searches.
+
+#### Instantiation
+
+- Empty: `trie = Trie()`
+
+- From a Sequence type object of strings: `trie = Trie(SEQUENCE_TYPE_OBJ)`
+
+#### Methods
+
 | **Method**   | **Description**                                           | **Time Complexity** |    
 |--------------|-----------------------------------------------------------|---------------------|
 | `add`        | Add a word in the trie.                                   | O(n)                | 
 | `search`     | Search if a word is in the trie.                          | O(n)                | 
 | `startswith` | Search if a word in the trie start with the given prefix. | O(n)                | 
 | `remove`     | Remove the given word from the trie.                      | O(n)                | 
+
+### Match Trie
+
+A regular trie, where you can search words with matching.
+
+Base match character is `'.'`, but you can change it with the parameter `match`.
+
+#### Instantiation
+
+- Empty: `trie = MatchTrie()`
+
+- From a Sequence type object of strings: `trie = MatchTrie(SEQUENCE_TYPE_OBJ)`
+
+#### Methods
+
+| **Method**   | **Description**                                                 | **Time Complexity** |    
+|--------------|-----------------------------------------------------------------|---------------------|
+| `add`        | Add a word in the match trie.                                   | O(n)                | 
+| `search`     | Search if a word is in match the trie.                          | O(n)                | 
+| `startswith` | Search if a word in the match trie start with the given prefix. | O(n)                | 
+| `remove`     | Remove the given word from the trie.                            | O(n)                | 
 
 
