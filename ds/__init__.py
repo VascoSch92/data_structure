@@ -4,6 +4,7 @@ from ds.stack_type.stack import Stack
 from ds.stack_type.min_max_stack import MinMaxStack
 from ds.trie_type.trie import Trie, TrieNode
 from ds.queue_type.queue import Queue
+from ds.trie_type.match_trie import MatchTrie
 
 __all__ = [
     "ListNode",
@@ -12,6 +13,7 @@ __all__ = [
     "MinMaxStack",
     "TrieNode",
     "Trie",
+    "MatchTrie",
     "Queue",
     "DoubleLinkedList",
 ]
