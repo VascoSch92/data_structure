@@ -5,7 +5,9 @@ __all__ = ["MatchTrie"]
 
 
 class MatchTrie:
-    def __new__(cls, _from: Optional[Sequence[str]] = None, match: str = '.') -> "MatchTrie":
+    def __new__(
+        cls, _from: Optional[Sequence[str]] = None, match: str = "."
+    ) -> "MatchTrie":
         if not isinstance(_from, Sequence) and _from:
             raise TypeError(
                 f"Creation of a match trie from type {type(_from)} not supported."
@@ -16,7 +18,7 @@ class MatchTrie:
             )
         return super().__new__(cls)
 
-    def __init__(self, _from: Optional[Sequence[str]] = None, match: str = '.') -> None:
+    def __init__(self, _from: Optional[Sequence[str]] = None, match: str = ".") -> None:
         self.root = self._instantiate_object(source=_from)
         self._match = match
 

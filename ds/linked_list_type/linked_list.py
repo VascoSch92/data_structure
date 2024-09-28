@@ -12,7 +12,9 @@ class ListNode:
         self.next = next
 
     def __repr__(self) -> str:
-        return f"ListNode(value={self.value.__str__()}, next={self.next.__repr__()})"
+        value = self.value.__str__() if self.value else None
+        next = self.next.value.__str__() if self.next else None
+        return f"ListNode(value={value}, next={next})"
 
 
 class LinkedList:
