@@ -148,6 +148,36 @@ This means the first element added to the queue is the first one to be removed.
 | `is_empty` | Return `True` if the queue is empty. Otherwise, `False`. | O(1)                | 
 
 
+## Tree Type
+
+---
+
+### Tree
+
+A tree is a data structure used to represent hierarchical relationships between elements. 
+It consists of nodes connected by edges, and it follows a specific organization that resembles a tree in nature.
+
+#### Instantiation
+
+- Empty: `tree = Tree()`
+
+- From a Sequence type object: `tree = Tree(SEQUENCE_TYPE_OBJ)`
+
+#### Attributes
+
+- `root`: the root of the tree (`TreeNode` type)
+
+
+#### Methods
+
+| **Method**              | **Description**                              | **Time Complexity** |    
+|-------------------------|----------------------------------------------|---------------------|
+| `preorder_traversal`    | Return the preorder traversal of the tree.   | O(n)                | 
+| `inorder_traversal`     | Return the inorder traversal of the tree.    | O(n)                | 
+| `postorder_traversal`   | Return the postorder traversal of the tree.  | O(n)                | 
+| `levels_traversal`      | Return the level order of the tree.          | O(n)                | 
+
+
 ## Trie Type
 
 ---
