@@ -5,12 +5,15 @@ from ds.stack_type.min_max_stack import MinMaxStack
 from ds.trie_type.trie import Trie, TrieNode
 from ds.queue_type.queue import Queue
 from ds.trie_type.match_trie import MatchTrie
+from ds.tree_type.tree import Tree, TreeNode
 
 __all__ = [
     "ListNode",
     "LinkedList",
     "Stack",
     "MinMaxStack",
+    "TreeNode",
+    "Tree",
     "TrieNode",
     "Trie",
     "MatchTrie",
