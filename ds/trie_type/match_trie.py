@@ -1,5 +1,6 @@
 from typing import Optional, Sequence
 from ds.trie_type.trie import TrieNode
+from ds._validators import _validate_instantiation_from_sequence
 
 __all__ = ["MatchTrie"]
 
@@ -8,10 +9,9 @@ class MatchTrie:
     def __new__(
         cls, _from: Optional[Sequence[str]] = None, match: str = "."
     ) -> "MatchTrie":
-        if not isinstance(_from, Sequence) and _from:
-            raise TypeError(
-                f"Creation of a match trie from type {type(_from)} not supported."
-            )
+        _validate_instantiation_from_sequence(
+            sequence=_from, data_structure="match trie"
+        )
         if not isinstance(match, str):
             raise TypeError(
                 f"Parameter match must be of type string, but got {type(str)}."

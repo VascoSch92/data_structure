@@ -1,15 +1,13 @@
 from typing import Optional, Sequence, Any
 from ds import LinkedList
+from ds._validators import _validate_instantiation_from_sequence
 
 __all__ = ["Queue"]
 
 
 class Queue:
     def __new__(cls, _from: Optional[Sequence] = None) -> "Queue":
-        if not isinstance(_from, Sequence) and _from:
-            raise TypeError(
-                f"Creation of a queue from type {type(_from)} not supported."
-            )
+        _validate_instantiation_from_sequence(sequence=_from, data_structure="queue")
         return super().__new__(cls)
 
     def __init__(self, _from: Optional[Sequence] = None) -> None:

@@ -1,5 +1,6 @@
 import collections
 from typing import Any, Optional, Sequence, List
+from ds._validators import _validate_instantiation_from_sequence
 
 __all__ = ["TreeNode", "Tree"]
 
@@ -26,10 +27,7 @@ class TreeNode:
 
 class Tree:
     def __new__(cls, _from: Optional[Sequence] = None) -> "Tree":
-        if not isinstance(_from, Sequence) and _from:
-            raise TypeError(
-                f"Creation of a tree from type {type(_from)} not supported."
-            )
+        _validate_instantiation_from_sequence(sequence=_from, data_structure="tree")
         return super().__new__(cls)
 
     def __init__(self, _from: Optional[Sequence] = None) -> None:

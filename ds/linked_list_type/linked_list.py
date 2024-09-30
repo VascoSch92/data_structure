@@ -1,5 +1,5 @@
 from typing import Optional, Sequence, Any, Tuple
-from ds._validators import _validate_index
+from ds._validators import _validate_index, _validate_instantiation_from_sequence
 
 __all__ = ["ListNode", "LinkedList"]
 
@@ -19,10 +19,9 @@ class ListNode:
 
 class LinkedList:
     def __new__(cls, _from: Optional[Sequence] = None) -> "LinkedList":
-        if not isinstance(_from, Sequence) and _from:
-            raise TypeError(
-                f"Creation of a linked list from type {type(_from)} not supported."
-            )
+        _validate_instantiation_from_sequence(
+            sequence=_from, data_structure="linked list"
+        )
         return super().__new__(cls)
 
     def __init__(self, _from: Optional[Sequence] = None) -> None:

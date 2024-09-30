@@ -1,5 +1,6 @@
 from typing import Optional, Sequence, Any, Tuple
 from ds._validators import _validate_index
+from ds._validators import _validate_instantiation_from_sequence
 
 __all__ = ["DoubleListNode", "DoubleLinkedList"]
 
@@ -18,15 +19,17 @@ class DoubleListNode:
         self.prev = prev
 
     def __repr__(self) -> str:
-        return f"DoubleListNode(value={self.value.__str__()}, next={self.next.__repr__()}, prev={self.prev.__repr__()})"
+        value = self.value.__str__() if self.value else None
+        next = self.next.value.__str__() if self.next else None
+        prev = self.prev.value.__str__() if self.prev else None
+        return f"DoubleListNode(value={value}, next={next}, prev={prev})"
 
 
 class DoubleLinkedList:
     def __new__(cls, _from: Optional[Sequence] = None) -> "DoubleLinkedList":
-        if not isinstance(_from, Sequence) and _from:
-            raise TypeError(
-                f"Creation of a double linked list from type {type(_from)} not supported."
-            )
+        _validate_instantiation_from_sequence(
+            sequence=_from, data_structure="double linked list"
+        )
         return super().__new__(cls)
 
     def __init__(self, _from: Optional[Sequence] = None) -> None:

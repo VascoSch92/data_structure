@@ -1,4 +1,5 @@
 from typing import Optional, Sequence
+from ds._validators import _validate_instantiation_from_sequence
 
 __all__ = ["Trie", "TrieNode"]
 
@@ -8,13 +9,14 @@ class TrieNode:
         self.children = {}
         self.end = False
 
+    def __repr__(self) -> str:
+        children = [key for key in self.children.keys()]
+        return f"TrieNode(children={children}, end={self.end})"
+
 
 class Trie:
     def __new__(cls, _from: Optional[Sequence[str]] = None) -> "Trie":
-        if not isinstance(_from, Sequence) and _from:
-            raise TypeError(
-                f"Creation of a trie from type {type(_from)} not supported."
-            )
+        _validate_instantiation_from_sequence(sequence=_from, data_structure="trie")
         return super().__new__(cls)
 
     def __init__(self, _from: Optional[Sequence[str]] = None) -> None:

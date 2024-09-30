@@ -1,15 +1,15 @@
 from typing import Sequence, Optional, Any, Tuple
 from ds import Stack
+from ds._validators import _validate_instantiation_from_sequence
 
 __all__ = ["MinMaxStack"]
 
 
 class MinMaxStack:
     def __new__(cls, _from: Optional[Sequence] = None) -> "MinMaxStack":
-        if not isinstance(_from, Sequence) and _from:
-            raise TypeError(
-                f"Creation of a min/max-stack from type {type(_from)} not supported."
-            )
+        _validate_instantiation_from_sequence(
+            sequence=_from, data_structure="MinMaxStack"
+        )
         return super().__new__(cls)
 
     def __init__(self, _from: Optional[Sequence] = None) -> None:
