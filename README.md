@@ -161,13 +161,13 @@ It consists of nodes connected by edges, and it follows a specific organization 
 
 #### Instantiation
 
-- Empty: `tree = Tree()`
+- Empty: `binary_tree = BinaryTree()`
 
-- From a Sequence type object: `tree = Tree(SEQUENCE_TYPE_OBJ)`
+- From a Sequence type object: `binary_tree = BinaryTree(SEQUENCE_TYPE_OBJ)`
 
 #### Attributes
 
-- `root`: the root of the tree (`TreeNode` type)
+- `root`: the root of the tree (`BinaryTreeNode` type)
 
 
 #### Methods
