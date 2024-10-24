@@ -37,6 +37,9 @@ class MatchTrie:
             curr.end = True
         return root
 
+    def __repr__(self) -> str:
+        return self.__class__.__name__
+
     def add(self, word: str) -> None:
         """
         Add a word in the match trie.

@@ -14,7 +14,7 @@ class ListNode:
     def __repr__(self) -> str:
         value = self.value.__str__() if self.value else None
         next = self.next.value.__str__() if self.next else None
-        return f"ListNode(value={value}, next={next})"
+        return f"{self.__class__.__name__}(value={value}, next={next})"
 
 
 class LinkedList:
@@ -48,7 +48,7 @@ class LinkedList:
     def __repr__(self) -> str:
         if not self.head:
             return "None"
-        return f"LinkedList(head={self.head.__repr__()}, tail={self.tail.__repr__()}, length={len(self)})"
+        return f"{self.__class__.__name__}(head={self.head.__repr__()}, tail={self.tail.__repr__()}, length={len(self)})"
 
     def insert(self, index: int, value: Any) -> None:
         """

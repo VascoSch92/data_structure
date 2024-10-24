@@ -11,7 +11,7 @@ class TrieNode:
 
     def __repr__(self) -> str:
         children = [key for key in self.children.keys()]
-        return f"TrieNode(children={children}, end={self.end})"
+        return f"{self.__class__.__name__}(children={children}, end={self.end})"
 
 
 class Trie:
@@ -21,6 +21,9 @@ class Trie:
 
     def __init__(self, _from: Optional[Sequence[str]] = None) -> None:
         self.root = self._instantiate_object(source=_from)
+
+    def __repr__(self) -> str:
+        return self.__class__.__name__
 
     @staticmethod
     def _instantiate_object(source: Optional[Sequence[str]] = None) -> TrieNode:

@@ -35,7 +35,9 @@ class MinMaxStack:
         return self._len > 0
 
     def __repr__(self) -> str:
-        return self._stack.__repr__()
+        elements = self._stack._as_list()
+        min_element, max_element = self._range[-1]
+        return f"{self.__class__.__name__}(min={min_element}, max = {max_element} [{elements}])"
 
     def pop(self) -> Any:
         """

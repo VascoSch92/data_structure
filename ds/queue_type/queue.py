@@ -25,7 +25,7 @@ class Queue:
         while curr:
             elements.append(curr.value.__repr__())
             curr = curr.next
-        return f"Queue({', '.join(elements)})"
+        return f"{self.__class__.__name__}({', '.join(elements)})"
 
     def enqueue(self, value: Any) -> None:
         """

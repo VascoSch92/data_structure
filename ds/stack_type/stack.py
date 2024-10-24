@@ -1,5 +1,5 @@
 from ds import ListNode
-from typing import Sequence, Optional, Any, Tuple
+from typing import Sequence, Optional, Any, Tuple, List
 from ds._validators import _validate_instantiation_from_sequence
 
 __all__ = ["Stack"]
@@ -14,12 +14,15 @@ class Stack:
         self._stack, self._len = self._instantiate_object(source=_from)
 
     def __repr__(self) -> str:
+        return f"{self.__class__.__name__}({', '.join(self._as_list())})"
+
+    def _as_list(self) -> List:
         curr = self._stack
         elements = []
         while curr:
             elements.append(curr.value.__repr__())
             curr = curr.next
-        return f"Stack({', '.join(elements[::-1])})"
+        return elements[::-1]
 
     @staticmethod
     def _instantiate_object(

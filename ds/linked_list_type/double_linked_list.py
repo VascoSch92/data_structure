@@ -22,7 +22,7 @@ class DoubleListNode:
         value = self.value.__str__() if self.value else None
         next = self.next.value.__str__() if self.next else None
         prev = self.prev.value.__str__() if self.prev else None
-        return f"DoubleListNode(value={value}, next={next}, prev={prev})"
+        return f"{self.__class__.__name__}(value={value}, next={next}, prev={prev})"
 
 
 class DoubleLinkedList:
@@ -56,7 +56,7 @@ class DoubleLinkedList:
     def __repr__(self) -> str:
         if not self.head:
             return "None"
-        return f"DoubleLinkedList(head={self.head.value.__repr__()}, tail={self.tail.value.__repr__()}, length={len(self)})"
+        return f"{self.__class__.__name__}(head={self.head.value.__repr__()}, tail={self.tail.value.__repr__()}, length={len(self)})"
 
     def insert(self, index: int, value: Any) -> None:
         """
