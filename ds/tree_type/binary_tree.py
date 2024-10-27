@@ -1,24 +1,19 @@
 import collections
 from typing import Any, Optional, Sequence, List
 from ds._validators import _validate_instantiation_from_sequence
+from dataclasses import dataclass
 
 __all__ = ["BinaryTreeNode", "BinaryTree"]
 
 
+@dataclass
 class BinaryTreeNode:
-    """Base node for a tree."""
+    """Node for a binary tree."""
 
-    def __init__(
-        self,
-        value: Any = None,
-        left: Optional["BinaryTreeNode"] = None,
-        right: Optional["BinaryTreeNode"] = None,
-        parent: Optional["BinaryTreeNode"] = None,
-    ) -> None:
-        self.value = value
-        self.left = left
-        self.right = right
-        self.parent = parent
+    value: int = None
+    left: Optional["BinaryTreeNode"] = None
+    right: Optional["BinaryTreeNode"] = None
+    parent: Optional["BinaryTreeNode"] = None
 
     def __repr__(self) -> str:
         value = self.value.__str__() if self.value else None
@@ -33,7 +28,7 @@ class BinaryTreeNode:
 
 class BinaryTree:
     def __new__(cls, _from: Optional[Sequence] = None) -> "BinaryTree":
-        _validate_instantiation_from_sequence(sequence=_from, data_structure="tree")
+        _validate_instantiation_from_sequence(sequence=_from, data_structure="binary tree")
         return super().__new__(cls)
 
     def __init__(self, _from: Optional[Sequence] = None) -> None:
@@ -41,7 +36,7 @@ class BinaryTree:
 
     @staticmethod
     def _instantiate_object(source: Optional[Sequence]) -> Optional[BinaryTreeNode]:
-        """Private method to instantiate a tree."""
+        """Private method to instantiate a binary tree."""
         if not source:
             return None
 
