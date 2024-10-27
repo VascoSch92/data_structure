@@ -1,22 +1,18 @@
 from typing import Optional, Sequence, Any, Tuple
 from ds._validators import _validate_index
 from ds._validators import _validate_instantiation_from_sequence
+from dataclasses import dataclass
 
 __all__ = ["DoubleListNode", "DoubleLinkedList"]
 
 
+@dataclass
 class DoubleListNode:
     """Base node for double linked list"""
 
-    def __init__(
-        self,
-        value: Any = None,
-        next: Optional["DoubleListNode"] = None,
-        prev: Optional["DoubleListNode"] = None,
-    ) -> None:
-        self.value = value
-        self.next = next
-        self.prev = prev
+    value: Any = None
+    next: Optional["DoubleListNode"] = None
+    prev: Optional["DoubleListNode"] = None
 
     def __repr__(self) -> str:
         value = self.value.__str__() if self.value else None

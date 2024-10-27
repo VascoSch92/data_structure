@@ -1,15 +1,16 @@
 from typing import Optional, Sequence, Any, Tuple
 from ds._validators import _validate_index, _validate_instantiation_from_sequence
+from dataclasses import dataclass
 
 __all__ = ["ListNode", "LinkedList"]
 
 
+@dataclass
 class ListNode:
     """Base node for linked list"""
 
-    def __init__(self, value: Any = None, next: Optional["ListNode"] = None) -> None:
-        self.value = value
-        self.next = next
+    value: Any = None
+    next: Optional["ListNode"] = None
 
     def __repr__(self) -> str:
         value = self.value.__str__() if self.value else None

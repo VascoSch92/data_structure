@@ -1,4 +1,5 @@
 from typing import Optional, Sequence
+
 from ds._validators import _validate_instantiation_from_sequence
 
 __all__ = ["Trie", "TrieNode"]

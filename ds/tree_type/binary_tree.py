@@ -28,7 +28,9 @@ class BinaryTreeNode:
 
 class BinaryTree:
     def __new__(cls, _from: Optional[Sequence] = None) -> "BinaryTree":
-        _validate_instantiation_from_sequence(sequence=_from, data_structure="binary tree")
+        _validate_instantiation_from_sequence(
+            sequence=_from, data_structure="binary tree"
+        )
         return super().__new__(cls)
 
     def __init__(self, _from: Optional[Sequence] = None) -> None:
