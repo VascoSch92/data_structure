@@ -14,9 +14,10 @@ A collection of data structure for Python.
 | [MinMaxStack](#minmaxstack)               | Regular stack where you can access the minimum and maximum of the elements presents in the stack in constant time. | [Stack Type](#stack-type)             | 
 | [Queue](#queue)                           | Linear data structure that follows the First In, First Out (FIFO) principle.                                       | [Queue Type](#queue-type)             | 
 | [Tree](#tree)                             | Data structure used to represent hierarchical relationships between elements.                                      | [Tree Type](#tree-type)               | 
+| [BinaryTree](#binary-tree)                | A binary tree is nothing but a tree where each node has at maximum 2 children.                                     | [Tree Type](#tree-type)               | 
+| [BinarySearchTree](#binary-search-tree)   | A binary tree with special properties on the node values                                                           | [Tree Type](#tree-type)               | 
 | [Trie](#trie)                             | Tree-like data structure used to store a dynamic set of strings                                                    | [Trie Type](#trie-type)               |
 | [MatchTrie](#match-trie)                  | Regular trie, where you can search words with matching.                                                            | [Trie Type](#trie-type)               |
-
 
 
 ## Linked List Type
