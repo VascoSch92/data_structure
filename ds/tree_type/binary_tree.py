@@ -1,4 +1,4 @@
-import collections
+from collections import deque
 from typing import Any, Optional, Sequence, List
 from ds._validators import _validate_instantiation_from_sequence
 from dataclasses import dataclass
@@ -102,8 +102,8 @@ class BinaryTree:
         """Private method to compute the postorder traversal of a tree."""
         if not node:
             return values
-        self._preorder_traversal(node=node.left, values=values)
-        self._preorder_traversal(node=node.right, values=values)
+        self._postorder_traversal(node=node.left, values=values)
+        self._postorder_traversal(node=node.right, values=values)
         values.append(node.value)
         return values
 
@@ -112,7 +112,7 @@ class BinaryTree:
         Return the level order of the tree.
         Time complexity: O(n), where n is the number of elements of the tree.
         """
-        q = collections.deque([self.root])
+        q = deque([self.root])
 
         levels = []
         while q:

@@ -154,10 +154,12 @@ This means the first element added to the queue is the first one to be removed.
 
 ---
 
-### Tree
-
 A tree is a data structure used to represent hierarchical relationships between elements. 
 It consists of nodes connected by edges, and it follows a specific organization that resembles a tree in nature.
+
+### Binary Tree
+
+A binary tree is nothing but a tree where each node has at maximum 2 children.
 
 #### Instantiation
 
@@ -178,6 +180,38 @@ It consists of nodes connected by edges, and it follows a specific organization 
 | `inorder_traversal`     | Return the inorder traversal of the tree.    | O(n)                | 
 | `postorder_traversal`   | Return the postorder traversal of the tree.  | O(n)                | 
 | `levels_traversal`      | Return the level order of the tree.          | O(n)                | 
+
+
+### Binary Search Tree
+
+A Binary Search Tree (BST) is a Binary Tree with the following two properties
+for every node:
+
+- All values in the left subtree of the node are smaller than the node's value.
+
+- All values in the right subtree of the node are greater than the node's value.
+
+It allows efficient searching, insertion, and deletion.
+
+#### Instantiation
+
+- Empty: `binary_search_tree = BinarySearchTree()`
+
+- From a Sequence type object: `binary_search_tree = BinaryTree(SEQUENCE_TYPE_OBJ)`
+
+#### Attributes
+
+- `root`: the root of the tree (`BinaryTreeNode` type)
+
+#### Methods
+
+| **Method**         | **Description**                                          | **Time Complexity** |    
+|--------------------|----------------------------------------------------------|---------------------|
+| `insert`           | Insert a node into the binary search tree.               | O(log(n))           | 
+| `delete`           | Delete a node from the binary search tree.               | O(log(n))           | 
+| `find`             | Return the node with the given value if found else None. | O(log(n))           |
+
+**Note**: All methods of the class `BinaryTree` are also inherited by the class `BinarySearchTree`.
 
 
 ## Trie Type

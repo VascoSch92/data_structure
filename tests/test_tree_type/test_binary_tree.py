@@ -49,7 +49,7 @@ def test_inorder_traversal():
 def test_postorder_traversal():
     sequence = [10, 20, 30, 40, 50]
     tree = BinaryTree(sequence)
-    assert tree.postorder_traversal() == [20, 40, 50, 30, 10]
+    assert tree.postorder_traversal() == [40, 50, 20, 30, 10]
 
 
 def test_levels_traversal():
