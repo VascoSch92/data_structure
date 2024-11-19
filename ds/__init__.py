@@ -7,6 +7,7 @@ from ds.queue_type.queue import Queue
 from ds.trie_type.match_trie import MatchTrie
 from ds.tree_type.binary_tree import BinaryTree, BinaryTreeNode
 from ds.tree_type.binary_search_tree import BinarySearchTree
+from ds.hash_table_type.hash_set import HashSet
 
 __all__ = [
     "ListNode",
@@ -21,4 +22,5 @@ __all__ = [
     "MatchTrie",
     "Queue",
     "DoubleLinkedList",
+    "HashSet",
 ]

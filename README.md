@@ -18,6 +18,7 @@ A collection of data structure for Python.
 | [BinarySearchTree](#binary-search-tree)   | A binary tree with special properties on the node values                                                           | [Tree Type](#tree-type)               | 
 | [Trie](#trie)                             | Tree-like data structure used to store a dynamic set of strings                                                    | [Trie Type](#trie-type)               |
 | [MatchTrie](#match-trie)                  | Regular trie, where you can search words with matching.                                                            | [Trie Type](#trie-type)               |
+| [HashSet](#hash-set)                      | Data structure that stores a collection of unique elements                                                         | [Hash Table Type](#hash-table-type)   |
 
 
 ## Linked List Type
@@ -263,3 +264,24 @@ Base match character is `'.'`, but you can change it with the parameter `match`.
 | `remove`     | Remove the given word from the trie.                            | O(n)                | 
 
 
+## Hash Table Type
+
+### Hash Set
+
+A hash set is a data structure, implemented with a hash table, that stores a collection of unique elements, 
+offering efficient operations such as insertion, deletion, and lookup.
+
+#### Instantiation
+
+- Empty: `hash_set = HashSet()`
+
+- From a Sequence type object of strings: `hash_set = HashSet(SEQUENCE_TYPE_OBJ)`
+
+#### Methods
+
+| **Method** | **Description**                     | **Time Complexity** |    
+|------------|-------------------------------------|---------------------|
+| `add`      | Add an item into the HashSet.       | O(1)                | 
+| `remove`   | Remove an item from the HashSet.    | O(1)                | 
+| `contains` | Check if an item is in the HashSet. | O(1)                | 
+| `clear`    | Clear the HashSet.                  | O(n)                | 
