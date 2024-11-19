@@ -2,24 +2,24 @@
 
 ---
 
-A collection of data structure for Python.
+A collection of data structures for Python.
 
 ## Overview
 
-| **Data Structure**                        | **Description**                                                                                                    | **Type**                              |    
-|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------|
-| [Linked List](#linked-list)               | Linear data structure where elements, called nodes, are stored in a sequence.                                      | [Linked List Type](#linked-list-type) | 
-| [Double Linked List](#double-linked-list) | Linked list where each node has two references: one for the next node and one for the previous node.               | [Linked List Type](#linked-list-type) | 
-| [Stack](#stack)                           | Linear data structure that follows the Last In, First Out (LIFO) principle.                                        | [Stack Type](#stack-type)             | 
-| [MinMaxStack](#minmaxstack)               | Regular stack where you can access the minimum and maximum of the elements presents in the stack in constant time. | [Stack Type](#stack-type)             | 
-| [Queue](#queue)                           | Linear data structure that follows the First In, First Out (FIFO) principle.                                       | [Queue Type](#queue-type)             | 
-| [Tree](#tree)                             | Data structure used to represent hierarchical relationships between elements.                                      | [Tree Type](#tree-type)               | 
-| [BinaryTree](#binary-tree)                | A binary tree is nothing but a tree where each node has at maximum 2 children.                                     | [Tree Type](#tree-type)               | 
-| [BinarySearchTree](#binary-search-tree)   | A binary tree with special properties on the node values                                                           | [Tree Type](#tree-type)               | 
-| [Trie](#trie)                             | Tree-like data structure used to store a dynamic set of strings                                                    | [Trie Type](#trie-type)               |
-| [MatchTrie](#match-trie)                  | Regular trie, where you can search words with matching.                                                            | [Trie Type](#trie-type)               |
-| [HashSet](#hash-set)                      | Data structure that stores a collection of unique elements                                                         | [Hash Table Type](#hash-table-type)   |
-
+| **Data Structure**                        | **Description**                                                                                            | **Type**                              |    
+|-------------------------------------------|------------------------------------------------------------------------------------------------------------|---------------------------------------|
+| [Linked List](#linked-list)               | Linear data structure where elements, called nodes, are stored in a sequence.                              | [Linked List Type](#linked-list-type) | 
+| [Double Linked List](#double-linked-list) | Linked list where each node has two references: one for the next node and one for the previous node.       | [Linked List Type](#linked-list-type) | 
+| [Stack](#stack)                           | Linear data structure that follows the Last In, First Out (LIFO) principle.                                | [Stack Type](#stack-type)             | 
+| [MinMaxStack](#minmaxstack)               | Regular stack where you can access the min and max of the elements presents in the stack in constant time. | [Stack Type](#stack-type)             | 
+| [Queue](#queue)                           | Linear data structure that follows the First In, First Out (FIFO) principle.                               | [Queue Type](#queue-type)             | 
+| [Tree](#tree)                             | Data structure used to represent hierarchical relationships between elements.                              | [Tree Type](#tree-type)               | 
+| [BinaryTree](#binary-tree)                | A binary tree is nothing but a tree where each node has at maximum 2 children.                             | [Tree Type](#tree-type)               | 
+| [BinarySearchTree](#binary-search-tree)   | A binary tree with special properties on the node values                                                   | [Tree Type](#tree-type)               | 
+| [Trie](#trie)                             | Tree-like data structure used to store a dynamic set of strings                                            | [Trie Type](#trie-type)               |
+| [MatchTrie](#match-trie)                  | Regular trie, where you can search words with matching.                                                    | [Trie Type](#trie-type)               |
+| [HashSet](#hash-set)                      | Data structure that stores a collection of unique elements.                                                | [Hash Table Type](#hash-table-type)   |
+| [HashMap](#hash-map)                      | Data structure that provides an efficient way to store and retrieve key-value pairs.                       | [Hash Table Type](#hash-table-type)   |
 
 ## Linked List Type
 
@@ -266,6 +266,8 @@ Base match character is `'.'`, but you can change it with the parameter `match`.
 
 ## Hash Table Type
 
+---
+
 ### Hash Set
 
 A hash set is a data structure, implemented with a hash table, that stores a collection of unique elements, 
@@ -285,3 +287,23 @@ offering efficient operations such as insertion, deletion, and lookup.
 | `remove`   | Remove an item from the HashSet.    | O(1)                | 
 | `contains` | Check if an item is in the HashSet. | O(1)                | 
 | `clear`    | Clear the HashSet.                  | O(n)                | 
+
+### Hash Map
+
+A hash map is a data structure that provides an efficient way to store and retrieve key-value pairs. 
+
+#### Instantiation
+
+- Empty: `hash_map = HashMap()`
+
+#### Methods
+
+| **Method** | **Description**                                                | **Time Complexity** |    
+|------------|----------------------------------------------------------------|---------------------|
+| `get`      | Get the value of the given key.                                | O(1)                | 
+| `add`      | Add an item, a couple (key, value), into the HashMap.          | O(1)                | 
+| `remove`   | Remove a key, and the respective value, from the HashSet.      | O(1)                | 
+| `keys`     | Retrieve the keys of the Hash Map as generator.                | O(n)                | 
+| `values`   | Retrieve the values of the Hash Map as generator.              | O(n)                | 
+| `items`    | Retrieve the pairs (key, value) of the Hash Map as generator.  | O(n)                | 
+| `clear`    | Clear the HashMap.                                             | O(n)                | 

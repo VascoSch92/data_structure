@@ -12,8 +12,15 @@ def _validate_index(index: int, lower_bound: int, upper_bound: int) -> None:
         )
 
 
-def _validate_instantiation_from_sequence(sequence: Any, data_structure: str):
+def _validate_instantiation_from_sequence(sequence: Any, data_structure: str) -> None:
     if not isinstance(sequence, Sequence) and sequence:
         raise TypeError(
             f"Creation of the data structure {data_structure} from type {type(sequence)} not supported."
+        )
+
+
+def _validate_capacity(capacity: int) -> None:
+    if not isinstance(capacity, int):
+        raise TypeError(
+            f"Wrong type provided for capacity. Expected type `int`, got type {type(capacity)}."
         )
