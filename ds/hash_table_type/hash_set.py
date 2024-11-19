@@ -1,7 +1,7 @@
 from typing import Optional, Sequence, List, Any
 
 from ds import LinkedList
-from ds._validators import _validate_instantiation_from_sequence
+from ds._validators import _validate_instantiation_from_sequence, _validate_capacity
 
 __all__ = ["HashSet"]
 
@@ -11,15 +11,12 @@ class HashSet:
         cls, capacity: int = 100, _from: Optional[Sequence] = None
     ) -> "HashSet":
         _validate_instantiation_from_sequence(sequence=_from, data_structure="hash set")
-        if not isinstance(capacity, int):
-            raise TypeError(
-                f"Wrong type provided for capacity. Expected type `int`, got type {type(capacity)}."
-            )
+        _validate_capacity(capacity=capacity)
         return super().__new__(cls)
 
     def __init__(self, capacity: int = 100, _from: Optional[Sequence] = None) -> None:
         """Initialize the HashSet with a fixed capacity."""
-        self.capacity = capacity
+        self._capacity = capacity
         self._len = 0
         self._buckets = self._instantiate_object(capacity=capacity, source=_from)
 
@@ -67,7 +64,7 @@ class HashSet:
 
     def _hash(self, key: Any) -> int:
         """Private method to generate a hash index for the given key."""
-        return hash(key) % self.capacity
+        return hash(key) % self._capacity
 
     def add(self, item: Any) -> None:
         """
@@ -98,6 +95,7 @@ class HashSet:
                 self._buckets[index].remove(key_index)
                 self._len -= 1
                 return
+            bucket = bucket.next
             key_index += 1
 
     def contains(self, item: Any) -> bool:
@@ -118,5 +116,5 @@ class HashSet:
         Clear the HashSet.
         Time complexity: O(n), where n is len(capacity).
         """
-        self._buckets = [LinkedList() for _ in range(self.capacity)]
+        self._buckets = [LinkedList() for _ in range(self._capacity)]
         self._len = 0
