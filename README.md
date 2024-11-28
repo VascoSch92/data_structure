@@ -20,6 +20,7 @@ A collection of data structures for Python.
 | [HashSet](#hash-set)                      | Data structure that stores a collection of unique elements.                                                | [Hash Table Type](#hash-table-type)   |
 | [HashMap](#hash-map)                      | Data structure that provides an efficient way to store and retrieve key-value pairs.                       | [Hash Table Type](#hash-table-type)   |
 | [MaxHeap](#max-heap)                      | Data structure that provides an efficient way to retrieve the max value.                                   | [Heap Type](#heap-type)               |
+| [MinHeap](#min-heap)                      | Data structure that provides an efficient way to retrieve the min value.                                   | [Heap Type](#heap-type)               |
 
 ## Linked List Type
 
@@ -316,7 +317,7 @@ A heap is a specialized binary tree-based data structure that satisfies the heap
 
 ### Max Heap
 
-A max-heap is a specific type of binary heap where the value of each parent node is greater than or equal to the
+A max heap is a specific type of binary heap where the value of each parent node is greater than or equal to the
 values of its children. This ensures that the largest element is always at the root of the tree.
 
 #### Instantiation
@@ -331,5 +332,23 @@ values of its children. This ensures that the largest element is always at the r
 |------------|------------------------------------------------------|---------------------|
 | `insert`   | Insert the element value into the max heap.          | O(log(n))           | 
 | `pop`      | Remove and return the largest element from the heap. | O(1)                | 
-| `max`      | Return the largest element without removing it.      | O(1)                | 
-| `clear`    | Clear the HashSet.                                   | O(n)                | 
+| `max`      | Return the largest element without removing it.      | O(1)                |
+
+### Min Heap
+
+A min heap is a specific type of binary heap where the value of each parent node is greater than or equal to the
+values of its children. This ensures that the largest element is always at the root of the tree.
+
+#### Instantiation
+
+- Empty: `min_heap = MinHeap()`
+
+- From a Sequence type object of strings: `min_heap = MinHeap(SEQUENCE_TYPE_OBJECT)`
+
+#### Methods
+
+| **Method** | **Description**                                      | **Time Complexity** |    
+|------------|------------------------------------------------------|---------------------|
+| `insert`   | Insert the element value into the min heap.          | O(log(n))           | 
+| `pop`      | Remove and return the smaller element from the heap. | O(1)                | 
+| `min`      | Return the smaller element without removing it.      | O(1)                |

@@ -10,6 +10,7 @@ from ds.tree_type.binary_search_tree import BinarySearchTree
 from ds.hash_table_type.hash_set import HashSet
 from ds.hash_table_type.hash_map import HashMap
 from ds.heap_type.max_heap import MaxHeap
+from ds.heap_type.min_heap import MinHeap
 
 __all__ = [
     "ListNode",
@@ -27,4 +28,5 @@ __all__ = [
     "HashSet",
     "HashMap",
     "MaxHeap",
+    "MinHeap",
 ]
