@@ -13,13 +13,13 @@ A collection of data structures for Python.
 | [Stack](#stack)                           | Linear data structure that follows the Last In, First Out (LIFO) principle.                                | [Stack Type](#stack-type)             | 
 | [MinMaxStack](#minmaxstack)               | Regular stack where you can access the min and max of the elements presents in the stack in constant time. | [Stack Type](#stack-type)             | 
 | [Queue](#queue)                           | Linear data structure that follows the First In, First Out (FIFO) principle.                               | [Queue Type](#queue-type)             | 
-| [Tree](#tree)                             | Data structure used to represent hierarchical relationships between elements.                              | [Tree Type](#tree-type)               | 
 | [BinaryTree](#binary-tree)                | A binary tree is nothing but a tree where each node has at maximum 2 children.                             | [Tree Type](#tree-type)               | 
 | [BinarySearchTree](#binary-search-tree)   | A binary tree with special properties on the node values                                                   | [Tree Type](#tree-type)               | 
 | [Trie](#trie)                             | Tree-like data structure used to store a dynamic set of strings                                            | [Trie Type](#trie-type)               |
 | [MatchTrie](#match-trie)                  | Regular trie, where you can search words with matching.                                                    | [Trie Type](#trie-type)               |
 | [HashSet](#hash-set)                      | Data structure that stores a collection of unique elements.                                                | [Hash Table Type](#hash-table-type)   |
 | [HashMap](#hash-map)                      | Data structure that provides an efficient way to store and retrieve key-value pairs.                       | [Hash Table Type](#hash-table-type)   |
+| [MaxHeap](#max-heap)                      | Data structure that provides an efficient way to retrieve the max value.                                   | [Heap Type](#heap-type)               |
 
 ## Linked List Type
 
@@ -307,3 +307,29 @@ A hash map is a data structure that provides an efficient way to store and retri
 | `values`   | Retrieve the values of the Hash Map as generator.              | O(n)                | 
 | `items`    | Retrieve the pairs (key, value) of the Hash Map as generator.  | O(n)                | 
 | `clear`    | Clear the HashMap.                                             | O(n)                | 
+
+## Heap Type
+
+A heap is a specialized binary tree-based data structure that satisfies the heap property
+
+---
+
+### Max Heap
+
+A max-heap is a specific type of binary heap where the value of each parent node is greater than or equal to the
+values of its children. This ensures that the largest element is always at the root of the tree.
+
+#### Instantiation
+
+- Empty: `max_heap = MaxHeap()`
+
+- From a Sequence type object of strings: `max_heap = MaxHeap(SEQUENCE_TYPE_OBJECT)`
+
+#### Methods
+
+| **Method** | **Description**                                      | **Time Complexity** |    
+|------------|------------------------------------------------------|---------------------|
+| `insert`   | Insert the element value into the max heap.          | O(log(n))           | 
+| `pop`      | Remove and return the largest element from the heap. | O(1)                | 
+| `max`      | Return the largest element without removing it.      | O(1)                | 
+| `clear`    | Clear the HashSet.                                   | O(n)                | 
