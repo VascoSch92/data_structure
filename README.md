@@ -22,6 +22,7 @@ A collection of data structures for Python.
 | [MaxHeap](#max-heap)                      | Data structure that provides an efficient way to retrieve the max value.                                   | [Heap Type](#heap-type)               |
 | [MinHeap](#min-heap)                      | Data structure that provides an efficient way to retrieve the min value.                                   | [Heap Type](#heap-type)               |
 | [Cache](#cache)                           | A simple fixed-capacity in-memory key-value store.                                                         | [Cache Type](#cache-type)             |
+| [LRUCache](#least-recently-used-cache)    | Implementation of a Least Recently Used (LRU) Cache with a fixed capacity.                                 | [Cache Type](#cache-type)             |
 
 ## Linked List Type
 
@@ -376,3 +377,21 @@ A simple fixed-capacity in-memory key-value store.
 | `get_cache`    | Return the cache in the order the elements were added.     | O(1)                | 
 | `get`          | Get an element from the cache.                             | O(1)                |
 | `put`          | Put an element into the cache if capacity is not exceeded. | O(1)                |
+
+### Least Recently Used Cache
+
+Implementation of a Least Recently Used (LRU) Cache with a fixed capacity. 
+
+#### Instantiation
+
+- Instantiation with given capacity (default is 1024): `lru_cache = LRUCache(capacity=POSITIVE_INTEGER)`
+
+#### Methods
+
+| **Method**     | **Description**                                                            | **Time Complexity** |    
+|----------------|----------------------------------------------------------------------------|---------------------|
+| `get_capacity` | Return the capacity of the cache.                                          | O(1)                | 
+| `get_cache`    | Return the cache in the order of usage.                                    | O(1)                | 
+| `get`          | Get an element from the cache.                                             | O(1)                |
+| `put`          | Put an element into the cache, eventually evict least recent used element. | O(1)                |
+

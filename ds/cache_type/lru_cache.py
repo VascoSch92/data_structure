@@ -1,12 +1,12 @@
-from ds._validators import _validate_capacity
-from typing import Optional, Any
 from collections import OrderedDict
+from ds._validators import _validate_capacity
+from typing import Any, Optional
 
-__all__ = ["Cache"]
+__all__ = ["LRUCache"]
 
 
-class Cache:
-    def __new__(cls, capacity: int = 1024) -> "Cache":
+class LRUCache:
+    def __new__(cls, capacity: int = 1024) -> "LRUCache":
         _validate_capacity(capacity=capacity)
         return super().__new__(cls)
 
@@ -20,21 +20,28 @@ class Cache:
         return self._capacity
 
     def get_cache(self) -> OrderedDict:
-        """Return the cache in the order the elements were added."""
+        """Return the cache in the order of usage."""
         return self._cache
 
-    def get(self, key: str) -> Optional[Any]:
+    def get(self, key: Any) -> Optional[Any]:
         """
         Get an element from the cache. Return None if key not present in the cache.
         Time complexity: O(1).
         """
         if key in self._cache:
+            self._cache.move_to_end(key=key)
             return self._cache[key]
 
     def put(self, key: Any, value: Any) -> None:
         """
-        Put an element into the cache if capacity is not exceeded.
+        Put an element into the cache, eventually evict least recent used element.
         Time complexity: O(1).
         """
-        if len(self._cache) < self._capacity:
+        if key in self._cache:
+            self._cache.move_to_end(key=key)
             self._cache[key] = value
+            return
+        self._cache[key] = value
+
+        if len(self._cache) > self._capacity:
+            self._cache.popitem(last=False)

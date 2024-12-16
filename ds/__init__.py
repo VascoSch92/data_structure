@@ -12,6 +12,7 @@ from ds.hash_table_type.hash_map import HashMap
 from ds.heap_type.max_heap import MaxHeap
 from ds.heap_type.min_heap import MinHeap
 from ds.cache_type.cache import Cache
+from ds.cache_type.lru_cache import LRUCache
 
 __all__ = [
     "ListNode",
@@ -31,4 +32,5 @@ __all__ = [
     "MaxHeap",
     "MinHeap",
     "Cache",
+    "LRUCache",
 ]
