@@ -1,7 +1,11 @@
 from typing import Optional, Sequence, List, Any
 
 from ds import LinkedList
-from ds._validators import _validate_instantiation_from_sequence, _validate_capacity
+from ds._validators import (
+    _validate_instantiation_from_sequence,
+    _validate_capacity,
+    _validate_hashable_key,
+)
 
 __all__ = ["HashSet"]
 
@@ -64,6 +68,7 @@ class HashSet:
 
     def _hash(self, key: Any) -> int:
         """Private method to generate a hash index for the given key."""
+        _validate_hashable_key(key=key)
         return hash(key) % self._capacity
 
     def add(self, item: Any) -> None:

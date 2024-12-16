@@ -1,7 +1,7 @@
 from typing import Any, Tuple, Literal, Generator
 
 from ds import LinkedList
-from ds._validators import _validate_capacity
+from ds._validators import _validate_capacity, _validate_hashable_key
 
 __all__ = ["HashMap"]
 
@@ -35,6 +35,7 @@ class HashMap:
 
     def _hash(self, key: Any) -> int:
         """Private method to generate a hash index for the given key."""
+        _validate_hashable_key(key=key)
         return hash(key) % self._capacity
 
     def get(self, key: Any, other: Any = None) -> Any:

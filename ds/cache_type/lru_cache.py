@@ -1,5 +1,5 @@
 from collections import OrderedDict
-from ds._validators import _validate_capacity
+from ds._validators import _validate_capacity, _validate_hashable_key
 from typing import Any, Optional
 
 __all__ = ["LRUCache"]
@@ -28,6 +28,8 @@ class LRUCache:
         Get an element from the cache. Return None if key not present in the cache.
         Time complexity: O(1).
         """
+        _validate_hashable_key(key=key)
+
         if key in self._cache:
             self._cache.move_to_end(key=key)
             return self._cache[key]
@@ -37,6 +39,8 @@ class LRUCache:
         Put an element into the cache, eventually evict least recent used element.
         Time complexity: O(1).
         """
+        _validate_hashable_key(key=key)
+
         if key in self._cache:
             self._cache.move_to_end(key=key)
             self._cache[key] = value

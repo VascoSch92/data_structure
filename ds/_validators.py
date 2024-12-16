@@ -1,4 +1,5 @@
 from typing import Any, Sequence
+from collections.abc import Hashable
 
 
 def _validate_index(index: int, lower_bound: int, upper_bound: int) -> None:
@@ -26,3 +27,8 @@ def _validate_capacity(capacity: int) -> None:
         )
     if capacity <= 0:
         raise ValueError("Capacity must be greater than 0.")
+
+
+def _validate_hashable_key(key: Any) -> None:
+    if not isinstance(key, Hashable):
+        raise TypeError("The provided key must be a hashable object.")

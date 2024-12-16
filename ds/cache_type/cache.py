@@ -1,4 +1,4 @@
-from ds._validators import _validate_capacity
+from ds._validators import _validate_capacity, _validate_hashable_key
 from typing import Optional, Any
 from collections import OrderedDict
 
@@ -28,6 +28,8 @@ class Cache:
         Get an element from the cache. Return None if key not present in the cache.
         Time complexity: O(1).
         """
+        _validate_hashable_key(key=key)
+
         if key in self._cache:
             return self._cache[key]
 
@@ -36,5 +38,7 @@ class Cache:
         Put an element into the cache if capacity is not exceeded.
         Time complexity: O(1).
         """
+        _validate_hashable_key(key=key)
+
         if len(self._cache) < self._capacity:
             self._cache[key] = value
