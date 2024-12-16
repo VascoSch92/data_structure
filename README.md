@@ -21,6 +21,7 @@ A collection of data structures for Python.
 | [HashMap](#hash-map)                      | Data structure that provides an efficient way to store and retrieve key-value pairs.                       | [Hash Table Type](#hash-table-type)   |
 | [MaxHeap](#max-heap)                      | Data structure that provides an efficient way to retrieve the max value.                                   | [Heap Type](#heap-type)               |
 | [MinHeap](#min-heap)                      | Data structure that provides an efficient way to retrieve the min value.                                   | [Heap Type](#heap-type)               |
+| [Cache](#cache)                           | A simple fixed-capacity in-memory key-value store.                                                         | [Cache Type](#cache-type)             |
 
 ## Linked List Type
 
@@ -352,3 +353,26 @@ values of its children. This ensures that the largest element is always at the r
 | `insert`   | Insert the element value into the min heap.          | O(log(n))           | 
 | `pop`      | Remove and return the smaller element from the heap. | O(1)                | 
 | `min`      | Return the smaller element without removing it.      | O(1)                |
+
+
+## Cache Type
+
+A cache is a temporary storage layer that holds frequently accessed data to improve performance and reduce latency. 
+It stores data closer to the user or system, avoiding repeated retrieval from slower storage or computations.
+
+### Cache
+
+A simple fixed-capacity in-memory key-value store.
+
+#### Instantiation
+
+- Instantiation with given capacity (default is 1024): `cache = Cache(capacity=POSITIVE_INTEGER)`
+
+#### Methods
+
+| **Method**     | **Description**                                            | **Time Complexity** |    
+|----------------|------------------------------------------------------------|---------------------|
+| `get_capacity` | Return the capacity of the cache.                          | O(1)                | 
+| `get_cache`    | Return the cache in the order the elements were added.     | O(1)                | 
+| `get`          | Get an element from the cache.                             | O(1)                |
+| `put`          | Put an element into the cache if capacity is not exceeded. | O(1)                |

@@ -24,3 +24,5 @@ def _validate_capacity(capacity: int) -> None:
         raise TypeError(
             f"Wrong type provided for capacity. Expected type `int`, got type {type(capacity)}."
         )
+    if capacity <= 0:
+        raise ValueError("Capacity must be greater than 0.")
