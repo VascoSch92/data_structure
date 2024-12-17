@@ -47,5 +47,9 @@ class LRUCache:
             return
         self._cache[key] = value
 
+        self._evict_least_recent_used()
+
+    def _evict_least_recent_used(self) -> None:
+        """Private method top evict least recent used element."""
         if len(self._cache) > self._capacity:
             self._cache.popitem(last=False)
