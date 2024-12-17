@@ -52,7 +52,7 @@ class LFUCache:
         self._counter[key] += 1
         self._lfu[self._counter[key]][key] = curr_value
 
-    def put(self, key: int, value: int) -> None:
+    def put(self, key: Any, value: Any) -> None:
         """
         Put an element into the cache, eventually evict least frequently used element.
         Time complexity: O(1).

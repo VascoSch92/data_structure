@@ -362,6 +362,8 @@ values of its children. This ensures that the largest element is always at the r
 A cache is a temporary storage layer that holds frequently accessed data to improve performance and reduce latency. 
 It stores data closer to the user or system, avoiding repeated retrieval from slower storage or computations.
 
+**Note**: Every implemented cache strategy can also be used as a decorator. See the end of this section.
+
 ### Cache
 
 A simple fixed-capacity in-memory key-value store.
@@ -413,3 +415,23 @@ Implementation of a Least Frequently Used (LFU) Cache with a fixed capacity.
 | `get`          | Get an element from the cache.                                                 | O(1)                |
 | `put`          | Put an element into the cache, eventually evict least frequently used element. | O(1)                |
 
+
+### Decorators
+
+Every above implemented cache can also be used as a decorator. Here, a small example.
+
+```python
+from ds import lfu_cache
+
+@lfu_cache(capacity=2)
+def multiply(a, b):
+    print(f"Calculating {a} * {b}")
+    return a * b
+
+print(multiply(2, 3))  # Calculating 2 * 3 -> 6
+print(multiply(2, 3))  # Cache hit -> 6
+print(multiply(3, 4))  # Calculating 3 * 4 -> 12
+print(multiply(5, 6))  # Calculating 5 * 6 -> 30 (evicts least frequently used: 3 * 4)
+print(multiply(2, 3))  # Cache hit -> 6
+print(multiply(3, 4))  # Calculating 3 * 4 -> 12 (recomputed, since it was evicted)
+```

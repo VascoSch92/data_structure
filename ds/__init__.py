@@ -14,6 +14,7 @@ from ds.heap_type.min_heap import MinHeap
 from ds.cache_type.cache import Cache
 from ds.cache_type.lru_cache import LRUCache
 from ds.cache_type.lfu_cache import LFUCache
+from ds.cache_type.decorators import cache, lfu_cache, lru_cache
 
 __all__ = [
     "ListNode",
@@ -35,4 +36,7 @@ __all__ = [
     "Cache",
     "LRUCache",
     "LFUCache",
+    "lfu_cache",
+    "lru_cache",
+    "cache",
 ]

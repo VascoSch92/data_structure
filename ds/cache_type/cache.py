@@ -23,7 +23,7 @@ class Cache:
         """Return the cache in the order the elements were added."""
         return self._cache
 
-    def get(self, key: str) -> Optional[Any]:
+    def get(self, key: Any) -> Optional[Any]:
         """
         Get an element from the cache. Return None if key not present in the cache.
         Time complexity: O(1).
