@@ -13,6 +13,20 @@ class MinHeap:
     def __init__(self, _from: Optional[Sequence] = None) -> None:
         self._heap = self._instantiate_object(source=_from)
 
+    def __len__(self):
+        """Return the number of elements in the heap."""
+        return len(self._heap)
+
+    def __bool__(self) -> bool:
+        return self.__len__() > 0
+
+    def __deepcopy__(self) -> "MinHeap":
+        return MinHeap(self._heap.copy())
+
+    def __repr__(self):
+        """String representation of the heap."""
+        return f"MinHeap({', '.join([element.__repr__() for element in self._heap])})"
+
     def _instantiate_object(self, source: Optional[Sequence] = None) -> List[int]:
         if not source:
             return []
@@ -81,11 +95,3 @@ class MinHeap:
         if not self._heap:
             raise IndexError("peek from empty heap")
         return self._heap[0]
-
-    def __len__(self):
-        """Return the number of elements in the heap."""
-        return len(self._heap)
-
-    def __repr__(self):
-        """String representation of the heap."""
-        return f"MinHeap({', '.join([element.__repr__() for element in self._heap])})"

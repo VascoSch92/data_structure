@@ -6,24 +6,26 @@ A collection of data structures for Python.
 
 ## Overview
 
-| **Data Structure**                        | **Description**                                                                                            | **Type**                              |    
-|-------------------------------------------|------------------------------------------------------------------------------------------------------------|---------------------------------------|
-| [Linked List](#linked-list)               | Linear data structure where elements, called nodes, are stored in a sequence.                              | [Linked List Type](#linked-list-type) | 
-| [Double Linked List](#double-linked-list) | Linked list where each node has two references: one for the next node and one for the previous node.       | [Linked List Type](#linked-list-type) | 
-| [Stack](#stack)                           | Linear data structure that follows the Last In, First Out (LIFO) principle.                                | [Stack Type](#stack-type)             | 
-| [MinMaxStack](#minmaxstack)               | Regular stack where you can access the min and max of the elements presents in the stack in constant time. | [Stack Type](#stack-type)             | 
-| [Queue](#queue)                           | Linear data structure that follows the First In, First Out (FIFO) principle.                               | [Queue Type](#queue-type)             | 
-| [BinaryTree](#binary-tree)                | A binary tree is nothing but a tree where each node has at maximum 2 children.                             | [Tree Type](#tree-type)               | 
-| [BinarySearchTree](#binary-search-tree)   | A binary tree with special properties on the node values                                                   | [Tree Type](#tree-type)               | 
-| [Trie](#trie)                             | Tree-like data structure used to store a dynamic set of strings                                            | [Trie Type](#trie-type)               |
-| [MatchTrie](#match-trie)                  | Regular trie, where you can search words with matching.                                                    | [Trie Type](#trie-type)               |
-| [HashSet](#hash-set)                      | Data structure that stores a collection of unique elements.                                                | [Hash Table Type](#hash-table-type)   |
-| [HashMap](#hash-map)                      | Data structure that provides an efficient way to store and retrieve key-value pairs.                       | [Hash Table Type](#hash-table-type)   |
-| [MaxHeap](#max-heap)                      | Data structure that provides an efficient way to retrieve the max value.                                   | [Heap Type](#heap-type)               |
-| [MinHeap](#min-heap)                      | Data structure that provides an efficient way to retrieve the min value.                                   | [Heap Type](#heap-type)               |
-| [Cache](#cache)                           | A simple fixed-capacity in-memory key-value store.                                                         | [Cache Type](#cache-type)             |
-| [LRUCache](#least-recently-used-cache)    | Implementation of a Least Recently Used (LRU) Cache with a fixed capacity.                                 | [Cache Type](#cache-type)             |
-| [LFUCache](#least-frequently-used-cache)  | Implementation of a Least Frequently Used (LFU) Cache with a fixed capacity.                               | [Cache Type](#cache-type)             |
+| **Data Structure**                        | **Description**                                                                                             | **Type**                              |    
+|-------------------------------------------|-------------------------------------------------------------------------------------------------------------|---------------------------------------|
+| [Linked List](#linked-list)               | Linear data structure where elements, called nodes, are stored in a sequence.                               | [Linked List Type](#linked-list-type) | 
+| [Double Linked List](#double-linked-list) | Linked list where each node has two references: one for the next node and one for the previous node.        | [Linked List Type](#linked-list-type) | 
+| [Stack](#stack)                           | Linear data structure that follows the Last In, First Out (LIFO) principle.                                 | [Stack Type](#stack-type)             | 
+| [MinMaxStack](#minmaxstack)               | Regular stack where you can access the min and max of the elements presents in the stack in constant time.  | [Stack Type](#stack-type)             | 
+| [Queue](#queue)                           | Linear data structure that follows the First In, First Out (FIFO) principle.                                | [Queue Type](#queue-type)             | 
+| [MaxPriorityQueue](#max-priority-queue)   | Data structure that maintains a collection of elements where each element has an associated priority value. | [Queue Type](#queue-type)             | 
+| [MinPriorityQueue](#min-priority-queue)   | Data structure that maintains a collection of elements where each element has an associated priority value. | [Queue Type](#queue-type)             | 
+| [BinaryTree](#binary-tree)                | A binary tree is nothing but a tree where each node has at maximum 2 children.                              | [Tree Type](#tree-type)               | 
+| [BinarySearchTree](#binary-search-tree)   | A binary tree with special properties on the node values.                                                   | [Tree Type](#tree-type)               | 
+| [Trie](#trie)                             | Tree-like data structure used to store a dynamic set of strings.                                            | [Trie Type](#trie-type)               |
+| [MatchTrie](#match-trie)                  | Regular trie, where you can search words with matching.                                                     | [Trie Type](#trie-type)               |
+| [HashSet](#hash-set)                      | Data structure that stores a collection of unique elements.                                                 | [Hash Table Type](#hash-table-type)   |
+| [HashMap](#hash-map)                      | Data structure that provides an efficient way to store and retrieve key-value pairs.                        | [Hash Table Type](#hash-table-type)   |
+| [MaxHeap](#max-heap)                      | Data structure that provides an efficient way to retrieve the max value.                                    | [Heap Type](#heap-type)               |
+| [MinHeap](#min-heap)                      | Data structure that provides an efficient way to retrieve the min value.                                    | [Heap Type](#heap-type)               |
+| [Cache](#cache)                           | A simple fixed-capacity in-memory key-value store.                                                          | [Cache Type](#cache-type)             |
+| [LRUCache](#least-recently-used-cache)    | Implementation of a Least Recently Used (LRU) Cache with a fixed capacity.                                  | [Cache Type](#cache-type)             |
+| [LFUCache](#least-frequently-used-cache)  | Implementation of a Least Frequently Used (LFU) Cache with a fixed capacity.                                | [Cache Type](#cache-type)             |
 
 ## Linked List Type
 
@@ -155,6 +157,49 @@ This means the first element added to the queue is the first one to be removed.
 | `peek`     | Return the first element of the queue.                   | O(1)                | 
 | `is_empty` | Return `True` if the queue is empty. Otherwise, `False`. | O(1)                | 
 
+### Max Priority Queue
+
+A max priority queue is a data structure that maintains a collection of elements where each element has an associated 
+priority value. In a max priority queue, elements with higher priority values are dequeued (removed) before elements 
+with lower priority values.
+
+Note that in case of same priority, the FIFO principle is applied.
+
+#### Instantiation
+
+- Empty: `max_priority_queue = MaxPriorityQueue()`
+
+- From a sequence of priorities and values: `max_priority_queue = MaxPriorityQueue(SEQUENCE_TYPE_OBJ)`
+
+#### Methods
+
+| **Method** | **Description**                                          | **Time Complexity** |    
+|------------|----------------------------------------------------------|---------------------|
+| `enqueue`  | Add value to the queue with given priority.              | O(log(n))           | 
+| `dequeue`  | Remove and return highest-priority value.                | O(1)                | 
+| `peek`     | Return highest-priority value without removing it.       | O(1)                | 
+
+### Min Priority Queue
+
+A min priority queue is a data structure that maintains a collection of elements where each element has an associated 
+priority value. In a min priority queue, elements with lower priority values are dequeued (removed) before elements 
+with higher priority values.
+
+Note that in case of same priority, the FIFO principle is applied.
+
+#### Instantiation
+
+- Empty: `min_priority_queue = MinPriorityQueue()`
+
+- From a sequence of priorities and values: `min_priority_queue = MinPriorityQueue(SEQUENCE_TYPE_OBJ)`
+
+#### Methods
+
+| **Method** | **Description**                                   | **Time Complexity** |    
+|------------|---------------------------------------------------|---------------------|
+| `enqueue`  | Add value to the queue with given priority.       | O(log(n))           | 
+| `dequeue`  | Remove and return lowest-priority value.          | O(1)                | 
+| `peek`     | Return lowest-priority value without removing it. | O(1)                | 
 
 ## Tree Type
 

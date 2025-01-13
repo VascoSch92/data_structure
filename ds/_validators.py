@@ -1,4 +1,4 @@
-from typing import Any, Sequence
+from typing import Any, Sequence, Tuple, List
 from collections.abc import Hashable
 
 
@@ -18,6 +18,23 @@ def _validate_instantiation_from_sequence(sequence: Any, data_structure: str) ->
         raise TypeError(
             f"Creation of the data structure {data_structure} from type {type(sequence)} not supported."
         )
+
+
+def _validate_instantiation_of_sequence_with_priorities(
+    sequence: Any,
+    data_structure: str,
+) -> None:
+    _validate_instantiation_from_sequence(
+        sequence=sequence, data_structure=data_structure
+    )
+    if sequence:
+        for element in sequence:
+            if not isinstance(element, (Tuple, List)):
+                raise TypeError(f"Expected tuple or list. But got {type(element)}.")
+            if len(element) != 2:
+                raise ValueError(
+                    f"Expected tuple or list of length 2. But got {len(element)}."
+                )
 
 
 def _validate_capacity(capacity: int) -> None:

@@ -19,6 +19,16 @@ class Queue:
     def __bool__(self) -> bool:
         return self._queue.__len__() > 0
 
+    def __deepcopy__(self) -> "Queue":
+        elements = []
+
+        curr = self._queue.head
+        while curr:
+            elements.append(curr.value)
+            curr = curr.next
+
+        return Queue(elements)
+
     def __repr__(self) -> str:
         curr = self._queue.head
         elements = []

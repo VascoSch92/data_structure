@@ -4,6 +4,8 @@ from ds.stack_type.stack import Stack
 from ds.stack_type.min_max_stack import MinMaxStack
 from ds.trie_type.trie import Trie, TrieNode
 from ds.queue_type.queue import Queue
+from ds.queue_type.max_priority_queue import MaxPriorityQueue
+from ds.queue_type.min_priority_queue import MinPriorityQueue
 from ds.trie_type.match_trie import MatchTrie
 from ds.tree_type.binary_tree import BinaryTree, BinaryTreeNode
 from ds.tree_type.binary_search_tree import BinarySearchTree
@@ -28,6 +30,8 @@ __all__ = [
     "Trie",
     "MatchTrie",
     "Queue",
+    "MaxPriorityQueue",
+    "MinPriorityQueue",
     "DoubleLinkedList",
     "HashSet",
     "HashMap",
