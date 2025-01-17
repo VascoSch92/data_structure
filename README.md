@@ -21,8 +21,8 @@ A collection of data structures for Python.
 | [MatchTrie](#match-trie)                  | Regular trie, where you can search words with matching.                                                     | [Trie Type](#trie-type)               |
 | [HashSet](#hash-set)                      | Data structure that stores a collection of unique elements.                                                 | [Hash Table Type](#hash-table-type)   |
 | [HashMap](#hash-map)                      | Data structure that provides an efficient way to store and retrieve key-value pairs.                        | [Hash Table Type](#hash-table-type)   |
-| [MaxHeap](#max-heap)                      | Data structure that provides an efficient way to retrieve the max value.                                    | [Heap Type](#heap-type)               |
-| [MinHeap](#min-heap)                      | Data structure that provides an efficient way to retrieve the min value.                                    | [Heap Type](#heap-type)               |
+| [MaxBinaryHeap](#max-binary-heap)         | Data structure that provides an efficient way to retrieve the max value.                                    | [Heap Type](#heap-type)               |
+| [MinBinaryHeap](#min-binary-heap)         | Data structure that provides an efficient way to retrieve the min value.                                    | [Heap Type](#heap-type)               |
 | [Cache](#cache)                           | A simple fixed-capacity in-memory key-value store.                                                          | [Cache Type](#cache-type)             |
 | [LRUCache](#least-recently-used-cache)    | Implementation of a Least Recently Used (LRU) Cache with a fixed capacity.                                  | [Cache Type](#cache-type)             |
 | [LFUCache](#least-frequently-used-cache)  | Implementation of a Least Frequently Used (LFU) Cache with a fixed capacity.                                | [Cache Type](#cache-type)             |
@@ -363,16 +363,16 @@ A heap is a specialized binary tree-based data structure that satisfies the heap
 
 ---
 
-### Max Heap
+### Max Binary Heap
 
-A max heap is a specific type of binary heap where the value of each parent node is greater than or equal to the
-values of its children. This ensures that the largest element is always at the root of the tree.
+A max binary heap is a heap data structure that takes the form of a binary tree. 
+The largest element is always at the root of the tree.
 
 #### Instantiation
 
-- Empty: `max_heap = MaxHeap()`
+- Empty: `max_heap = MaxBinaryHeap()`
 
-- From a Sequence type object of strings: `max_heap = MaxHeap(SEQUENCE_TYPE_OBJECT)`
+- From a Sequence type object of strings: `max_heap = MaxBinaryHeap(SEQUENCE_TYPE_OBJECT)`
 
 #### Methods
 
@@ -382,16 +382,16 @@ values of its children. This ensures that the largest element is always at the r
 | `pop`      | Remove and return the largest element from the heap. | O(1)                | 
 | `max`      | Return the largest element without removing it.      | O(1)                |
 
-### Min Heap
+### Min Binary Heap
 
-A min heap is a specific type of binary heap where the value of each parent node is greater than or equal to the
-values of its children. This ensures that the largest element is always at the root of the tree.
+A max binary heap is a heap data structure that takes the form of a binary tree. 
+The smaller element is always at the root of the tree.
 
 #### Instantiation
 
-- Empty: `min_heap = MinHeap()`
+- Empty: `min_heap = MinBinaryHeap()`
 
-- From a Sequence type object of strings: `min_heap = MinHeap(SEQUENCE_TYPE_OBJECT)`
+- From a Sequence type object of strings: `min_heap = MinBinaryHeap(SEQUENCE_TYPE_OBJECT)`
 
 #### Methods
 

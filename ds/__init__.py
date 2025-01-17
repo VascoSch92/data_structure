@@ -11,8 +11,8 @@ from ds.tree_type.binary_tree import BinaryTree, BinaryTreeNode
 from ds.tree_type.binary_search_tree import BinarySearchTree
 from ds.hash_table_type.hash_set import HashSet
 from ds.hash_table_type.hash_map import HashMap
-from ds.heap_type.max_heap import MaxHeap
-from ds.heap_type.min_heap import MinHeap
+from ds.heap_type.max_binary_heap import MaxBinaryHeap
+from ds.heap_type.min_binary_heap import MinBinaryHeap
 from ds.cache_type.cache import Cache
 from ds.cache_type.lru_cache import LRUCache
 from ds.cache_type.lfu_cache import LFUCache
@@ -35,8 +35,8 @@ __all__ = [
     "DoubleLinkedList",
     "HashSet",
     "HashMap",
-    "MaxHeap",
-    "MinHeap",
+    "MaxBinaryHeap",
+    "MinBinaryHeap",
     "Cache",
     "LRUCache",
     "LFUCache",

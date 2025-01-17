@@ -1,31 +1,27 @@
-from typing import Optional, Sequence, List
+from typing import Optional, Sequence, List, Any
 
-from ds._validators import _validate_instantiation_from_sequence
+from ds.heap_type._heap import _Heap
 
-__all__ = ["MaxHeap"]
+__all__ = ["MaxBinaryHeap"]
 
 
-class MaxHeap:
-    def __new__(cls, _from: Optional[Sequence] = None) -> "MaxHeap":
-        _validate_instantiation_from_sequence(sequence=_from, data_structure="max heap")
-        return super().__new__(cls)
-
+class MaxBinaryHeap(_Heap):
     def __init__(self, _from: Optional[Sequence] = None) -> None:
         self._heap = self._instantiate_object(source=_from)
 
-    def __len__(self):
+    def __len__(self) -> int:
         """Return the number of elements in the heap."""
         return len(self._heap)
 
     def __bool__(self) -> bool:
         return self.__len__() > 0
 
-    def __deepcopy__(self) -> "MaxHeap":
-        return MaxHeap(self._heap.copy())
+    def __deepcopy__(self) -> "MaxBinaryHeap":
+        return MaxBinaryHeap(self._heap.copy())
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         """String representation of the heap."""
-        return f"MaxHeap({', '.join([element.__repr__() for element in self._heap])})"
+        return f"MaxBinaryHeap({', '.join([element.__repr__() for element in self._heap])})"
 
     def _instantiate_object(self, source: Optional[Sequence] = None) -> List[int]:
         if not source:
@@ -62,7 +58,7 @@ class MaxHeap:
             index = parent
             parent = (index - 1) // 2
 
-    def insert(self, value):
+    def insert(self, value: Any) -> None:
         """
         Insert the element value into the max heap.
         Time complexity: O(log(n)).
@@ -70,7 +66,7 @@ class MaxHeap:
         self._heap.append(value)
         self._heapify_up(source=self._heap, index=len(self._heap) - 1)
 
-    def pop(self):
+    def pop(self) -> Any:
         """
         Remove and return the largest element from the heap.
         Time complexity: O(1).
@@ -87,7 +83,7 @@ class MaxHeap:
         self._heapify_down(source=self._heap, index=0)
         return root
 
-    def max(self):
+    def max(self) -> Any:
         """
         Return the largest element without removing it.
         Time complexity: O(1).

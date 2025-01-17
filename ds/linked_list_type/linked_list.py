@@ -21,7 +21,8 @@ class ListNode:
 class LinkedList:
     def __new__(cls, _from: Optional[Sequence] = None) -> "LinkedList":
         _validate_instantiation_from_sequence(
-            sequence=_from, data_structure="linked list"
+            sequence=_from,
+            data_structure="linked list",
         )
         return super().__new__(cls)
 

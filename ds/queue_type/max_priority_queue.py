@@ -1,5 +1,5 @@
 import collections
-from ds.heap_type.max_heap import MaxHeap
+from ds.heap_type.max_binary_heap import MaxBinaryHeap
 from ds.queue_type.queue import Queue
 from typing import Any, Sequence, Tuple, Dict, Optional, Union, List
 from ds._validators import _validate_instantiation_of_sequence_with_priorities
@@ -22,8 +22,8 @@ class MaxPriorityQueue:
     @staticmethod
     def _instantiate_object(
         source: Optional[Sequence[Union[Tuple, List]]],
-    ) -> Tuple["MaxHeap", Dict]:
-        heap = MaxHeap()
+    ) -> Tuple["MaxBinaryHeap", Dict]:
+        heap = MaxBinaryHeap()
         queue = collections.defaultdict(Queue)
 
         if not source:

@@ -1,5 +1,5 @@
 import collections
-from ds.heap_type.min_heap import MinHeap
+from ds.heap_type.min_binary_heap import MinBinaryHeap
 from ds.queue_type.queue import Queue
 from typing import Any, Sequence, Tuple, Dict, Optional, Union, List
 from ds._validators import _validate_instantiation_of_sequence_with_priorities
@@ -22,8 +22,8 @@ class MinPriorityQueue:
     @staticmethod
     def _instantiate_object(
         source: Optional[Sequence[Union[Tuple, List]]],
-    ) -> Tuple["MinHeap", Dict]:
-        heap = MinHeap()
+    ) -> Tuple["MinBinaryHeap", Dict]:
+        heap = MinBinaryHeap()
         queue = collections.defaultdict(Queue)
 
         if not source:
