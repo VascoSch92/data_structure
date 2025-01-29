@@ -12,7 +12,9 @@ __all__ = ["HashSet"]
 
 class HashSet:
     def __new__(
-        cls, capacity: int = 100, _from: Optional[Sequence] = None
+        cls,
+        capacity: int = 100,
+        _from: Optional[Sequence] = None,
     ) -> "HashSet":
         _validate_instantiation_from_sequence(sequence=_from, data_structure="hash set")
         _validate_capacity(capacity=capacity)

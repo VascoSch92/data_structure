@@ -6,26 +6,27 @@ A collection of data structures for Python.
 
 ## Overview
 
-| **Data Structure**                        | **Description**                                                                                             | **Type**                              |    
-|-------------------------------------------|-------------------------------------------------------------------------------------------------------------|---------------------------------------|
-| [Linked List](#linked-list)               | Linear data structure where elements, called nodes, are stored in a sequence.                               | [Linked List Type](#linked-list-type) | 
-| [Double Linked List](#double-linked-list) | Linked list where each node has two references: one for the next node and one for the previous node.        | [Linked List Type](#linked-list-type) | 
-| [Stack](#stack)                           | Linear data structure that follows the Last In, First Out (LIFO) principle.                                 | [Stack Type](#stack-type)             | 
-| [MinMaxStack](#minmaxstack)               | Regular stack where you can access the min and max of the elements presents in the stack in constant time.  | [Stack Type](#stack-type)             | 
-| [Queue](#queue)                           | Linear data structure that follows the First In, First Out (FIFO) principle.                                | [Queue Type](#queue-type)             | 
-| [MaxPriorityQueue](#max-priority-queue)   | Data structure that maintains a collection of elements where each element has an associated priority value. | [Queue Type](#queue-type)             | 
-| [MinPriorityQueue](#min-priority-queue)   | Data structure that maintains a collection of elements where each element has an associated priority value. | [Queue Type](#queue-type)             | 
-| [BinaryTree](#binary-tree)                | A binary tree is nothing but a tree where each node has at maximum 2 children.                              | [Tree Type](#tree-type)               | 
-| [BinarySearchTree](#binary-search-tree)   | A binary tree with special properties on the node values.                                                   | [Tree Type](#tree-type)               | 
-| [Trie](#trie)                             | Tree-like data structure used to store a dynamic set of strings.                                            | [Trie Type](#trie-type)               |
-| [MatchTrie](#match-trie)                  | Regular trie, where you can search words with matching.                                                     | [Trie Type](#trie-type)               |
-| [HashSet](#hash-set)                      | Data structure that stores a collection of unique elements.                                                 | [Hash Table Type](#hash-table-type)   |
-| [HashMap](#hash-map)                      | Data structure that provides an efficient way to store and retrieve key-value pairs.                        | [Hash Table Type](#hash-table-type)   |
-| [MaxBinaryHeap](#max-binary-heap)         | Data structure that provides an efficient way to retrieve the max value.                                    | [Heap Type](#heap-type)               |
-| [MinBinaryHeap](#min-binary-heap)         | Data structure that provides an efficient way to retrieve the min value.                                    | [Heap Type](#heap-type)               |
-| [Cache](#cache)                           | A simple fixed-capacity in-memory key-value store.                                                          | [Cache Type](#cache-type)             |
-| [LRUCache](#least-recently-used-cache)    | Implementation of a Least Recently Used (LRU) Cache with a fixed capacity.                                  | [Cache Type](#cache-type)             |
-| [LFUCache](#least-frequently-used-cache)  | Implementation of a Least Frequently Used (LFU) Cache with a fixed capacity.                                | [Cache Type](#cache-type)             |
+| **Data Structure**                        | **Description**                                                                                             | **Type**                               |    
+|-------------------------------------------|-------------------------------------------------------------------------------------------------------------|----------------------------------------|
+| [Linked List](#linked-list)               | Linear data structure where elements, called nodes, are stored in a sequence.                               | [Linked List Type](#linked-list-type)  | 
+| [Double Linked List](#double-linked-list) | Linked list where each node has two references: one for the next node and one for the previous node.        | [Linked List Type](#linked-list-type)  | 
+| [Stack](#stack)                           | Linear data structure that follows the Last In, First Out (LIFO) principle.                                 | [Stack Type](#stack-type)              | 
+| [MinMaxStack](#minmaxstack)               | Regular stack where you can access the min and max of the elements presents in the stack in constant time.  | [Stack Type](#stack-type)              | 
+| [Queue](#queue)                           | Linear data structure that follows the First In, First Out (FIFO) principle.                                | [Queue Type](#queue-type)              | 
+| [MaxPriorityQueue](#max-priority-queue)   | Data structure that maintains a collection of elements where each element has an associated priority value. | [Queue Type](#queue-type)              | 
+| [MinPriorityQueue](#min-priority-queue)   | Data structure that maintains a collection of elements where each element has an associated priority value. | [Queue Type](#queue-type)              | 
+| [BinaryTree](#binary-tree)                | A binary tree is nothing but a tree where each node has at maximum 2 children.                              | [Tree Type](#tree-type)                | 
+| [BinarySearchTree](#binary-search-tree)   | A binary tree with special properties on the node values.                                                   | [Tree Type](#tree-type)                | 
+| [UnionFind](#union-find)                  | Union Find is a data structure that efficiently handles dynamic connectivity problems.                      | [Tree Type](#tree-type)                |
+| [Trie](#trie)                             | Tree-like data structure used to store a dynamic set of strings.                                            | [Trie Type](#trie-type)                |
+| [MatchTrie](#match-trie)                  | Regular trie, where you can search words with matching.                                                     | [Trie Type](#trie-type)                |
+| [HashSet](#hash-set)                      | Data structure that stores a collection of unique elements.                                                 | [Hash Table Type](#hash-table-type)    |
+| [HashMap](#hash-map)                      | Data structure that provides an efficient way to store and retrieve key-value pairs.                        | [Hash Table Type](#hash-table-type)    |
+| [MaxBinaryHeap](#max-binary-heap)         | Data structure that provides an efficient way to retrieve the max value.                                    | [Heap Type](#heap-type)                |
+| [MinBinaryHeap](#min-binary-heap)         | Data structure that provides an efficient way to retrieve the min value.                                    | [Heap Type](#heap-type)                |
+| [Cache](#cache)                           | A simple fixed-capacity in-memory key-value store.                                                          | [Cache Type](#cache-type)              |
+| [LRUCache](#least-recently-used-cache)    | Implementation of a Least Recently Used (LRU) Cache with a fixed capacity.                                  | [Cache Type](#cache-type)              |
+| [LFUCache](#least-frequently-used-cache)  | Implementation of a Least Frequently Used (LFU) Cache with a fixed capacity.                                | [Cache Type](#cache-type)              |
 
 ## Linked List Type
 
@@ -263,6 +264,23 @@ It allows efficient searching, insertion, and deletion.
 | `find`             | Return the node with the given value if found else None. | O(log(n))           |
 
 **Note**: All methods of the class `BinaryTree` are also inherited by the class `BinarySearchTree`.
+
+### Union Find
+
+Union Find, also known as Disjoint Set Union (DSU), is a data structure that efficiently handles 
+dynamic connectivity problems.
+
+#### Instantiation
+
+- Empty: `union_find = UnionFind(CAPACITY)`
+
+#### Methods
+
+| **Method**          | **Description**                                                           | **Time Complexity** |    
+|---------------------|---------------------------------------------------------------------------|---------------------|
+| `find`              | Find the root representative of the given element using path compression. | O(1)                | 
+| `union`             | Unite the sets containing the given elements using union by rank.         | O(1)                | 
+| `connected`         | Check if the given elements belong to the same set.                       | O(1)                |
 
 
 ## Trie Type

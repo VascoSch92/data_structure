@@ -17,6 +17,7 @@ from ds.cache_type.cache import Cache
 from ds.cache_type.lru_cache import LRUCache
 from ds.cache_type.lfu_cache import LFUCache
 from ds.cache_type.decorators import cache, lfu_cache, lru_cache
+from ds.tree_type.union_find import UnionFind
 
 __all__ = [
     "ListNode",
@@ -26,6 +27,7 @@ __all__ = [
     "BinaryTreeNode",
     "BinaryTree",
     "BinarySearchTree",
+    "UnionFind",
     "TrieNode",
     "Trie",
     "MatchTrie",
