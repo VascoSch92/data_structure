@@ -276,11 +276,13 @@ dynamic connectivity problems.
 
 #### Methods
 
-| **Method**          | **Description**                                                           | **Time Complexity** |    
-|---------------------|---------------------------------------------------------------------------|---------------------|
-| `find`              | Find the root representative of the given element using path compression. | O(1)                | 
-| `union`             | Unite the sets containing the given elements using union by rank.         | O(1)                | 
-| `connected`         | Check if the given elements belong to the same set.                       | O(1)                |
+| **Method**   | **Description**                                                           | **Time Complexity** |    
+|--------------|---------------------------------------------------------------------------|---------------------|
+| `find`       | Find the root representative of the given element using path compression. | O(1)                | 
+| `union`      | Unite the sets containing the given elements using union by rank.         | O(1)                | 
+| `connected`  | Check if the given elements belong to the same set.                       | O(1)                |
+| `components` | Return the number of components.                                          | O(1)                |
+
 
 
 ## Trie Type

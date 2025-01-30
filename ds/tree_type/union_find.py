@@ -12,6 +12,12 @@ class UnionFind:
         self._capacity = capacity
         self._parent = list(range(capacity))
         self._rank = [1] * capacity
+        self._components = capacity
+
+    @property
+    def components(self) -> int:
+        """Return the number of components."""
+        return self._components
 
     def _validate_element(self, value: int) -> None:
         """Private method to validate a given input."""
@@ -50,6 +56,7 @@ class UnionFind:
             else:
                 self._parent[root_y] = root_x
                 self._rank[root_x] += 1
+            self._components -= 1
 
     def connected(self, x: int, y: int) -> bool:
         """
